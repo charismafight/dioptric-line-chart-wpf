@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
+using SQLite.CodeFirst;
 
 namespace Dioptric
 {
-    public class Model
+    public class DioptricModel
     {
         public int Id { get; set; }
 
