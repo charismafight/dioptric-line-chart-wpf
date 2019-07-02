@@ -39,11 +39,12 @@ namespace Dioptric
 
             using (var db = new DioptricContext())
             {
-                db.Dioptrics.Add(m);
+                if (m.Id == 0)
+                {
+                    db.Dioptrics.Add(m);
+                }
                 db.SaveChanges();
             }
-
-            await this.ShowMessageAsync("提示", "保存成功");
 
             Close();
         }

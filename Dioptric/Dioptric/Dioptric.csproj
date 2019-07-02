@@ -93,6 +93,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Chart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,9 @@
     </Compile>
     <Compile Include="CaseDetail.xaml.cs">
       <DependentUpon>CaseDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chart.xaml.cs">
+      <DependentUpon>Chart.xaml</DependentUpon>
     </Compile>
     <Compile Include="DioptricContext.cs" />
     <Compile Include="MainWindow.xaml.cs">

@@ -38,6 +38,8 @@ namespace Dioptric
             {
                 DataContext = db.Dioptrics.OrderBy(p => p.Name).ToList();
             }
+
+            new Chart().Show();
         }
 
         private async void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -50,6 +52,11 @@ namespace Dioptric
 
             var win = new CaseDetail(dgCase.SelectedItems[0] as DioptricModel);
             win.ShowDialog();
+        }
+
+        private void BtnShowChart_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

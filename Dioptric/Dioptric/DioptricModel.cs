@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using SQLite.CodeFirst;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dioptric
 {
     public class DioptricModel
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Name { get; set; }
