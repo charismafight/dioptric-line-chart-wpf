@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using SQLite.CodeFirst;
 
 namespace Dioptric
 {

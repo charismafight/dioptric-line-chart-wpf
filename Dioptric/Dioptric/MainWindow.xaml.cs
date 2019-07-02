@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,22 @@ namespace Dioptric
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            using (var db = new DioptricContext())
+            {
+                DataContext = db.Dioptrics.OrderBy(p => p.Name).ToList();
+            }
+        }
+
+        private async void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCase.SelectedItems.Count <= 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个病例后编辑");
+                return;
+            }
+
+            var win = new CaseDetail(dgCase.SelectedItems[0] as DioptricModel);
+            win.ShowDialog();
         }
     }
 }

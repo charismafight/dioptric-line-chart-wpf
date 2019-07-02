@@ -8,8 +8,18 @@
         mc:Ignorable="d"
         Title="Dioptric" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid Margin="0,19,0,0"/>
-        <Button Content="新增患者记录" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Click="Button_Click" Height="41"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
+        <Button Grid.Row="0" Content="新增" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="Button_Click" Height="50"
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+        <Button x:Name="btnEdit" Grid.Row="0" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="BtnEdit_Click" Height="50"
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="100,0,0,0"/>
+        <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="1" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
+                  Style="{StaticResource AzureDataGrid}"
+                  />
     </Grid>
 </controls:MetroWindow>

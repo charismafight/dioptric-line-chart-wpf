@@ -21,27 +21,21 @@ namespace Dioptric
     /// </summary>
     public partial class CaseDetail : MetroWindow
     {
-        public CaseDetail()
+        public CaseDetail(object context = null)
         {
             InitializeComponent();
+            if (context == null)
+            {
+                Title = "新增病例";
+                context = new DioptricModel();
+            }
+
+            DataContext = context;
         }
 
         private async void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-            var m = new DioptricModel();
-            try
-            {
-                m.Name = tbName.Text;
-                m.Sex = tbSex.Text;
-                m.Age = int.Parse(tbAge.Text);
-                m.EyeSight = float.Parse(tbEyeSight.Text);
-                m.IDCardNumber = tbIDCard.Text;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("请确保输入数据正确");
-                return;
-            }
+            var m = DataContext as DioptricModel;
 
             using (var db = new DioptricContext())
             {
@@ -49,22 +43,19 @@ namespace Dioptric
                 db.SaveChanges();
             }
 
-            await this.ShowMessageAsync("1", "2");
-
+            await this.ShowMessageAsync("提示", "保存成功");
 
             Close();
+        }
 
-            //var db = new DioptricDB();
-            //var sp = db.DataProvider.GetSchemaProvider();
-            //var schema = sp.GetSchema(db);
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
 
-            //if (!schema.Tables.Any(p => p.TableName == "Dioptric"))
-            //{
-            //    using (var d = new DbDioptric())
-            //    {
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
 
-            //    }
-            //}
         }
     }
 }
