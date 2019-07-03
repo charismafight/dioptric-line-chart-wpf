@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,47 +18,57 @@ namespace Dioptric
     /// <summary>
     /// Chart.xaml 的交互逻辑
     /// </summary>
-    public partial class Chart : Window
+    public partial class Chart : MetroWindow
     {
-        public Chart()
+        List<DioptricModel> models;
+
+        public Chart(List<DioptricModel> models)
         {
             InitializeComponent();
+            this.models = models;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //data
-            var dic = new List<KeyValuePair<int, int>>()
-            {
-                new KeyValuePair<int, int>(1,10),
-                new KeyValuePair<int, int>(2,20),
-                new KeyValuePair<int, int>(3,10),
-                new KeyValuePair<int, int>(4,30),
-            };
+            DrawArea(models);
+            var latestModel = models.OrderByDescending(p => p.Id).First();
+            Title = $"姓名：{latestModel.Name} 性别：{latestModel.Sex} 身份证号：{latestModel.IDCardNumber}";
+        }
 
+        void DrawArea(List<DioptricModel> models)
+        {
+            var maxAge = models.Max(p => p.Age);
+            var minAge = models.Min(p => p.Age);
+
+            var maxEyeSight = models.Max(p => p.EyeSight);
+            var minEyeSight = models.Min(p => p.EyeSight);
 
             PointCollection points = new PointCollection();
             //像素间隔，用来画轴线上的标记刻度的
             const double margin = 8;
 
             //x最小50-最大910
+            //scale为轴的两端空余px
             const double xscale = 50;
             double xmin = xscale;
             double xmax = (int)canGraph.Width - xscale;
             //x轴的pixel
             double xLength = xmax - xmin;
+            //用x长度来表示多少年龄区间的值，算出一个px表示多少年龄
+            var agePerPx = xLength / (maxAge - minAge);
 
             const double yscale = 50;
             double ymin = yscale;
             double ymax = (int)canGraph.Height - yscale;
             double yLength = ymax - ymin;
+            //用y长度来表示视力区间，算出一个px表示多少视力
+            var eyeSightPerPx = yLength / (maxEyeSight - minEyeSight);
             //步长很简单x的就是x的max/count，y同理
-            //count就由外部的记录数决定了
-            var count = dic.Count;
-            double xstep = xLength / count;
-            double ystep = yLength / count;
+            //坐标轴分成多少份
+            var sectionCounts = 10;
+            double xstep = xLength / sectionCounts;
+            double ystep = yLength / sectionCounts;
 
-            var xaxis = new List<double>();
             // Make the X axis.
             GeometryGroup xaxis_geom = new GeometryGroup();
             //x轴线
@@ -68,11 +79,6 @@ namespace Dioptric
                 xaxis_geom.Children.Add(new LineGeometry(
                     new Point(x, ymax - margin / 2),
                     new Point(x, ymax + margin / 2)));
-                xaxis.Add(x);
-                var tb = new TextBlock() { Text = dic[xaxis.Count].Key.ToString() };
-                Canvas.SetLeft(tb, x);
-                Canvas.SetTop(tb, ymax);
-                canGraph.Children.Add(tb);
             }
 
             Path xaxis_path = new Path();
@@ -83,7 +89,6 @@ namespace Dioptric
             canGraph.Children.Add(xaxis_path);
 
             //// Make the Y ayis.
-            var yaxis = new List<double>();
             GeometryGroup yaxis_geom = new GeometryGroup();
             yaxis_geom.Children.Add(new LineGeometry(
                 new Point(xmin, 0), new Point(xmin, canGraph.Height)));
@@ -92,7 +97,6 @@ namespace Dioptric
                 yaxis_geom.Children.Add(new LineGeometry(
                     new Point(xmin - margin / 2, y),
                     new Point(xmin + margin / 2, y)));
-                yaxis.Add(y);
             }
 
             Path yaxis_path = new Path();
@@ -102,16 +106,39 @@ namespace Dioptric
 
             canGraph.Children.Add(yaxis_path);
 
-            for (int i = 0; i < xaxis.Count; i++)
+            var orderedModels = models.OrderBy(p => p.Age).ToList();
+            //画点连线
+            for (int i = 0; i < orderedModels.Count; i++)
             {
-                if (i == 0)
+                var ageDiff = orderedModels[i].Age - minAge;
+                var x = xmin + ageDiff * agePerPx;
+
+                //y轴有些不同，y的最大值是坐标0点，但是在画布上是左下角点（即top大，left0的点）
+                //所以用视力的最大值去减，得到的结果就从y的最小值上按比例加，越大越靠上方
+                var eyeSightDiff = maxEyeSight - orderedModels[i].EyeSight;
+                var y = ymin + eyeSightDiff * eyeSightPerPx;
+
+                points.Add(new Point(x, y));
+
+                var tbX = new TextBlock();
+                tbX.Text = orderedModels[i].Age.ToString();
+                Canvas.SetLeft(tbX, x);
+                Canvas.SetTop(tbX, ymax);
+                canGraph.Children.Add(tbX);
+
+                var tbY = new TextBlock();
+                tbY.Text = orderedModels[i].EyeSight.ToString();
+                if (orderedModels[i].EyeSight == minEyeSight)
                 {
-                    points.Add(new Point(xmin, ymin));
+                    Canvas.SetTop(tbY, y - 15);
                 }
                 else
                 {
-                    points.Add(new Point(xaxis[i], yaxis[i]));
+                    Canvas.SetTop(tbY, y);
                 }
+                Canvas.SetLeft(tbY, xmin - 20);
+
+                canGraph.Children.Add(tbY);
             }
 
             Polyline polyline = new Polyline();

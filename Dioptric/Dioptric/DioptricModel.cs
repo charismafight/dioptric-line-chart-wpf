@@ -24,5 +24,14 @@ namespace Dioptric
         public string IDCardNumber { get; set; }
 
         public float EyeSight { get; set; }
+
+        public void GetValueOfModel(DioptricModel model)
+        {
+            Name = model.Name;
+            Sex = model.Sex;
+            Age = model.Age;
+            IDCardNumber = model.IDCardNumber;
+            EyeSight = model.EyeSight;
+        }
     }
 }

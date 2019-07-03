@@ -19,8 +19,7 @@
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="50,0,0,0"/>
         <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="1" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
-                  Style="{StaticResource AzureDataGrid}"
-                  />
+                  Style="{StaticResource AzureDataGrid}"/>
         <Button x:Name="btnShowChart" Grid.Row="0" Content="显示折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowChart_Click" Height="50"
             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="100,0,0,0"/>
     </Grid>

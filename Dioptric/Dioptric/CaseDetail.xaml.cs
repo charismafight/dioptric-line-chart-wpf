@@ -43,6 +43,11 @@ namespace Dioptric
                 {
                     db.Dioptrics.Add(m);
                 }
+                else
+                {
+                    var modelInDb = db.Dioptrics.Single(p => p.Id == m.Id);
+                    modelInDb.GetValueOfModel(m);
+                }
                 db.SaveChanges();
             }
 

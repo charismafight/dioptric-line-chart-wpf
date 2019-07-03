@@ -1,12 +1,13 @@
-﻿<Window x:Class="Dioptric.Chart"
+﻿<controls:MetroWindow x:Class="Dioptric.Chart"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="Chart" Height="768" Width="1280" Loaded="Window_Loaded">
-    <Grid Background="LightGreen">
+        Title="Chart" Height="650" Width="991.483" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid Background="{StaticResource AccentBaseColorBrush}">
         <Canvas Name="canGraph" Background="White"
       Width="960" Height="600"
       VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -14,4 +15,4 @@
             <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="视力" Canvas.Top="10" FontSize="20" Width="20"/>
         </Canvas>
     </Grid>
-</Window>
+</controls:MetroWindow>

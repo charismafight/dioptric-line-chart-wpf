@@ -38,8 +38,6 @@ namespace Dioptric
             {
                 DataContext = db.Dioptrics.OrderBy(p => p.Name).ToList();
             }
-
-            new Chart().Show();
         }
 
         private async void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -54,9 +52,21 @@ namespace Dioptric
             win.ShowDialog();
         }
 
-        private void BtnShowChart_Click(object sender, RoutedEventArgs e)
+        private async void BtnShowChart_Click(object sender, RoutedEventArgs e)
         {
+            if (dgCase.SelectedItems.Count <= 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个病例后查看");
+                return;
+            }
 
+            var selectedItem = dgCase.SelectedItems[0] as DioptricModel;
+
+            var all = DataContext as List<DioptricModel>;
+            var individualModels = all.Where(p => p.IDCardNumber == selectedItem.IDCardNumber).ToList();
+
+            var chart = new Chart(individualModels);
+            chart.ShowDialog();
         }
     }
 }
