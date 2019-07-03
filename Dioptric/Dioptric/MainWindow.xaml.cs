@@ -30,6 +30,8 @@ namespace Dioptric
         {
             var win = new CaseDetail();
             win.ShowDialog();
+
+            Window_Loaded(null, null);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -67,6 +69,26 @@ namespace Dioptric
 
             var chart = new Chart(individualModels);
             chart.ShowDialog();
+        }
+
+        private async void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgCase.SelectedItems.Count <= 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个病例删除");
+                return;
+            }
+
+            var selectedItem = dgCase.SelectedItems[0] as DioptricModel;
+
+            using (var db = new DioptricContext())
+            {
+                db.Dioptrics.Attach(selectedItem);
+                db.Dioptrics.Remove(selectedItem);
+                db.SaveChanges();
+            }
+
+            Window_Loaded(null, null);
         }
     }
 }
