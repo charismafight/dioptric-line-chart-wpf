@@ -9,29 +9,31 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dioptric
 {
-    public class DioptricModel
+    public class PatientModel
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Name { get; set; }
 
         public string Sex { get; set; }
 
-        public int Age { get; set; }
+        public float Age { get; set; }
 
         public string IDCardNumber { get; set; }
 
-        public float EyeSight { get; set; }
+        public float Height { get; set; }
 
-        public void GetValueOfModel(DioptricModel model)
+        public float Weight { get; set; }
+
+
+        public void GetValueOfModel(PatientModel model)
         {
             Name = model.Name;
             Sex = model.Sex;
             Age = model.Age;
             IDCardNumber = model.IDCardNumber;
-            EyeSight = model.EyeSight;
         }
     }
 }

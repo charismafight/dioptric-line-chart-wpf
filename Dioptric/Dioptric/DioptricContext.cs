@@ -9,12 +9,12 @@ using System.Data.Entity;
 
 namespace Dioptric
 {
-    public class DioptricContext: DbContext
+    public class PatientContext: DbContext
     {
         //定义属性，便于外部访问数据表
-        public DbSet<DioptricModel> Dioptrics { get { return Set<DioptricModel>(); } }
+        public DbSet<PatientModel> Dioptrics { get { return Set<PatientModel>(); } }
 
-        public DioptricContext() : base("dbConn")
+        public PatientContext() : base("dbConn")
         {
 
         }
@@ -22,7 +22,7 @@ namespace Dioptric
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             ModelConfiguration.Configure(modelBuilder);
-            var init = new SqliteDropCreateDatabaseWhenModelChanges<DioptricContext>(modelBuilder);
+            var init = new SqliteDropCreateDatabaseWhenModelChanges<PatientContext>(modelBuilder);
             //var init = new SqliteCreateDatabaseIfNotExists<MyBookDB>(modelBuilder);
             Database.SetInitializer(init);
         }
@@ -36,7 +36,7 @@ namespace Dioptric
         }
         private static void ConfigureBookEntity(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DioptricModel>();
+            modelBuilder.Entity<PatientModel>();
         }
     }
 }

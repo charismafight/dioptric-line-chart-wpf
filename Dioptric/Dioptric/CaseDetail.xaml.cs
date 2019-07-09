@@ -26,8 +26,8 @@ namespace Dioptric
             InitializeComponent();
             if (context == null)
             {
-                Title = "新增病例";
-                context = new DioptricModel();
+                Title = "患者病例";
+                context = new PatientModel();
             }
 
             DataContext = context;
@@ -35,9 +35,9 @@ namespace Dioptric
 
         private async void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-            var m = DataContext as DioptricModel;
+            var m = DataContext as PatientModel;
 
-            using (var db = new DioptricContext())
+            using (var db = new PatientContext())
             {
                 if (m.Id == 0)
                 {

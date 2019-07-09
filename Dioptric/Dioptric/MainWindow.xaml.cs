@@ -36,7 +36,7 @@ namespace Dioptric
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var db = new DioptricContext())
+            using (var db = new PatientContext())
             {
                 DataContext = db.Dioptrics.OrderBy(p => p.Name).ToList();
             }
@@ -50,7 +50,7 @@ namespace Dioptric
                 return;
             }
 
-            var win = new CaseDetail(dgCase.SelectedItems[0] as DioptricModel);
+            var win = new CaseDetail(dgCase.SelectedItems[0] as PatientModel);
             win.ShowDialog();
         }
 
@@ -62,9 +62,9 @@ namespace Dioptric
                 return;
             }
 
-            var selectedItem = dgCase.SelectedItems[0] as DioptricModel;
+            var selectedItem = dgCase.SelectedItems[0] as PatientModel;
 
-            var all = DataContext as List<DioptricModel>;
+            var all = DataContext as List<PatientModel>;
             var individualModels = all.Where(p => p.IDCardNumber == selectedItem.IDCardNumber).ToList();
 
             var chart = new Chart(individualModels);
@@ -79,9 +79,9 @@ namespace Dioptric
                 return;
             }
 
-            var selectedItem = dgCase.SelectedItems[0] as DioptricModel;
+            var selectedItem = dgCase.SelectedItems[0] as PatientModel;
 
-            using (var db = new DioptricContext())
+            using (var db = new PatientContext())
             {
                 db.Dioptrics.Attach(selectedItem);
                 db.Dioptrics.Remove(selectedItem);
@@ -89,6 +89,11 @@ namespace Dioptric
             }
 
             Window_Loaded(null, null);
+        }
+
+        private void BtnShowRecord_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

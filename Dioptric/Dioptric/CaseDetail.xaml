@@ -6,21 +6,16 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="修改病例" Height="260.377" Width="417.925" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+        Title="修改患者" Height="153.726" Width="421.362" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,91,0,0" TextWrapping="Wrap" Text="视力：" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="195,50,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="年龄：" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="195,10,0,0" TextWrapping="Wrap" Text="性别：" VerticalAlignment="Top" Width="53"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="224,10,0,0" TextWrapping="Wrap" Text="性别：" VerticalAlignment="Top" Width="41"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" RenderTransformOrigin="-0.672,-0.911"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="15" Margin="51,5,0,0" TextWrapping="Wrap" Text="{Binding Name,Mode=TwoWay}" VerticalAlignment="Top" Width="139"/>
-        <TextBox x:Name="tbSex" HorizontalAlignment="Left" Height="23" Margin="255,5,0,0" TextWrapping="Wrap" Text="{Binding Sex,Mode=TwoWay}" VerticalAlignment="Top" Width="145"/>
-        <TextBox x:Name="tbAge" HorizontalAlignment="Left" Height="23" Margin="51,45,0,0" TextWrapping="Wrap" Text="{Binding Age,Mode=TwoWay}" VerticalAlignment="Top" Width="139"/>
-        <TextBox x:Name="tbIDCard" HorizontalAlignment="Left" Height="23" Margin="255,45,0,0" TextWrapping="Wrap" Text="{Binding IDCardNumber,Mode=TwoWay}" VerticalAlignment="Top" Width="145"/>
-        <TextBox x:Name="tbEyeSight" HorizontalAlignment="Left" Height="23" Margin="51,86,0,0" TextWrapping="Wrap" Text="{Binding EyeSight,Mode=TwoWay}" VerticalAlignment="Top" Width="139"/>
-        <Button x:Name="btnOK" Content="确 定" HorizontalAlignment="Left" Margin="236,181,0,0" VerticalAlignment="Top" Width="75" Click="BtnOK_Click"/>
-        <Button x:Name="btnCancel" Content="取 消" HorizontalAlignment="Left" Margin="325,181,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
-
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="15" Margin="70,5,0,0" TextWrapping="Wrap" Text="{Binding Name,Mode=TwoWay}" VerticalAlignment="Top" Width="145"/>
+        <TextBox x:Name="tbSex" HorizontalAlignment="Left" Height="23" Margin="257,5,0,0" TextWrapping="Wrap" Text="{Binding Sex,Mode=TwoWay}" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="tbIDCard" HorizontalAlignment="Left" Height="23" Margin="70,36,0,0" TextWrapping="Wrap" Text="{Binding IDCardNumber,Mode=TwoWay}" VerticalAlignment="Top" Width="145"/>
+        <Button x:Name="btnOK" Content="确 定" HorizontalAlignment="Left" Margin="239,65,0,0" VerticalAlignment="Top" Width="75" Click="BtnOK_Click"/>
+        <Button x:Name="btnCancel" Content="取 消" HorizontalAlignment="Left" Margin="328,65,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
     </Grid>
 </controls:MetroWindow>

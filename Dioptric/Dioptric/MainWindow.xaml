@@ -6,10 +6,15 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="Dioptric" Height="768" Width="1440" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="患者清单" Height="768" Width="1440" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -17,12 +22,79 @@
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
         <Button x:Name="btnEdit" Grid.Row="0" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnEdit_Click" Height="50" Width="50"
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="50,0,0,0"/>
-        <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="1" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
-                  CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
-                  Style="{StaticResource AzureDataGrid}"/>
         <Button x:Name="btnShowChart" Grid.Row="0" Content="显示折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowChart_Click" Height="50"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="150,0,0,0"/>
+            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="340,2,0,0"/>
         <Button x:Name="btnDelete" Grid.Row="0" Content="删除" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnDelete_Click" Height="50" Width="50"
             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="100,0,0,0"/>
+
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnQuery" Content="查  询" HorizontalAlignment="Left" Margin="125,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+
+        <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
+                  Style="{StaticResource AzureDataGrid}"/>
+        <Button x:Name="btnShowRecord" Grid.Row="0" Content="检查记录" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnShowRecord_Click" Height="50" Width="59"
+            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="150,0,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" Text="检查记录：" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="年龄：" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="验光日期" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
+            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="16" Grid.Column="4"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+        </Grid>
+
+        <!--左右眼信息-->
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="6" Text="左  眼" VerticalAlignment="Center" FontSize="18"/>
+
+
+            </Grid>
+
+        </Grid>
+
     </Grid>
 </controls:MetroWindow>
