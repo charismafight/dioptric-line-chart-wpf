@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="检查信息" Height="300" Width="1366">
+        Title="检查信息" Height="500" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,80 +25,100 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="年龄：" VerticalAlignment="Center" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="验光日期：" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="睫状肌麻痹方式：" VerticalAlignment="Center" FontSize="16" Grid.Column="4"/>
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="验光日期：" VerticalAlignment="Center" FontSize="16" Grid.Column="4"/>
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="睫状肌麻痹方式：" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
 
         <TextBlock Grid.Row="1" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="体重：" VerticalAlignment="Center" FontSize="16"/>
         <TextBlock Grid.Row="1" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="身高：" VerticalAlignment="Center" FontSize="16" Grid.Column="2"></TextBlock>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="备注：" VerticalAlignment="Center" FontSize="16" Grid.Column="4"></TextBlock>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="备注：" VerticalAlignment="Center" FontSize="16"></TextBlock>
+        <RichTextBox Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="auto" Grid.Row="2" Grid.ColumnSpan="4"/>
 
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" Grid.Row="1"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Grid.Row="1"/>
 
-        <Calendar Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" Grid.Row="1"/>
+        <Calendar Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="3"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Grid.Row="1"/>
 
-        <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-        <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" Grid.Row="1"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
 
-        <Grid x:Name="gridLeft"  Grid.Row="2" Grid.ColumnSpan="3">
+        <Label Content="----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" Grid.Row="3" Grid.ColumnSpan="6"></Label>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="左  眼" VerticalAlignment="Center" FontSize="18" Grid.Row="4" Grid.ColumnSpan="3" Height="22" Width="48"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Row="4" Grid.Column="3" Text="右  眼" VerticalAlignment="Center" FontSize="18"/>
+
+        <Grid x:Name="gridLeft"  Grid.Row="5" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="87*"></ColumnDefinition>
-                <ColumnDefinition Width="139*"></ColumnDefinition>
-                <ColumnDefinition Width="104*"></ColumnDefinition>
-                <ColumnDefinition Width="122*"></ColumnDefinition>
-                <ColumnDefinition Width="113*"></ColumnDefinition>
-                <ColumnDefinition Width="113*"></ColumnDefinition>
+                <ColumnDefinition Width="82*"></ColumnDefinition>
+                <ColumnDefinition Width="130*"></ColumnDefinition>
+                <ColumnDefinition Width="79*"></ColumnDefinition>
+                <ColumnDefinition Width="133*"></ColumnDefinition>
+                <ColumnDefinition Width="62*"></ColumnDefinition>
+                <ColumnDefinition Width="150*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="2" Text="左  眼" VerticalAlignment="Center" FontSize="18" Grid.Column="2" Height="23" Width="48"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Height="17"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" />
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="18"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="4"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="3" Height="17"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="3" Grid.Column="2"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="14" Height="16" Width="70"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="14" Grid.Column="2" Height="18"  Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="14"  Grid.Column="4" Height="18" Width="42" />
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Height="18" Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2" Height="18" Width="70"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" Height="18" Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="17" Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18" Width="70"/>
+
+            <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
         </Grid>
 
-        <Grid x:Name="gridRight"  Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3">
+        <Grid x:Name="gridRight"  Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
-                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="87*"></ColumnDefinition>
-                <ColumnDefinition Width="139*"></ColumnDefinition>
-                <ColumnDefinition Width="104*"></ColumnDefinition>
-                <ColumnDefinition Width="122*"></ColumnDefinition>
-                <ColumnDefinition Width="113*"></ColumnDefinition>
-                <ColumnDefinition Width="113*"></ColumnDefinition>
+                <ColumnDefinition Width="82*"></ColumnDefinition>
+                <ColumnDefinition Width="130*"></ColumnDefinition>
+                <ColumnDefinition Width="75*"></ColumnDefinition>
+                <ColumnDefinition Width="137*"></ColumnDefinition>
+                <ColumnDefinition Width="55*"></ColumnDefinition>
+                <ColumnDefinition Width="157*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="6" Text="右  眼" VerticalAlignment="Center" FontSize="18"/>
 
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Height="17"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" />
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="18"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="4"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="3" Height="17"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="3" Grid.Column="2"/>
-            <Button x:Name="btnCancel" Content="取 消" Grid.Column="5" HorizontalAlignment="Right"  Grid.Row="4" VerticalAlignment="Center" Width="75"/>
-            <Button x:Name="btnSave" Content="保 存" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="4" VerticalAlignment="Center" Width="75"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="14" Height="16" Width="70"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="14" Grid.Column="2" Height="18" Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="14"  Grid.Column="4" Height="18" Width="42" />
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Height="18"  Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2" Height="18" Width="70"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" Height="18" Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="17"  Width="42"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18" Width="70"/>
+
+            <TextBox Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" />
+            <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+            <Button x:Name="btnCancel" FontSize="18" Content="取 消" Grid.Column="5" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Center" Width="90" Height="40" Margin="0,0,3,0"/>
+            <Button x:Name="btnSave" FontSize="18" Content="保 存" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="3" VerticalAlignment="Center" Width="91" Height="40" Margin="0,0,98,0" Grid.ColumnSpan="2"/>
         </Grid>
 
     </Grid>

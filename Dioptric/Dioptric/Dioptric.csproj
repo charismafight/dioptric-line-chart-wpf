@@ -116,9 +116,11 @@
       <DependentUpon>Chart.xaml</DependentUpon>
     </Compile>
     <Compile Include="DioptricContext.cs" />
+    <Compile Include="EyeModel.cs" />
     <Compile Include="InspectionDetail.xaml.cs">
       <DependentUpon>InspectionDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InspectionModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

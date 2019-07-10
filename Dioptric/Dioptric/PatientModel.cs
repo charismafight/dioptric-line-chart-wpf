@@ -19,13 +19,9 @@ namespace Dioptric
 
         public string Sex { get; set; }
 
-        public float Age { get; set; }
-
         public string IDCardNumber { get; set; }
 
-        public float Height { get; set; }
-
-        public float Weight { get; set; }
+        public float Age { get; set; }
 
 
         public void GetValueOfModel(PatientModel model)
