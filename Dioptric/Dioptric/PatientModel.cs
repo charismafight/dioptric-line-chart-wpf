@@ -23,6 +23,8 @@ namespace Dioptric
 
         public float Age { get; set; }
 
+        public virtual ICollection<InspectionModel> Inspections { get; set; } = new HashSet<InspectionModel>();
+
 
         public void GetValueOfModel(PatientModel model)
         {

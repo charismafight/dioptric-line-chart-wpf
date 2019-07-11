@@ -9,10 +9,12 @@ using System.Data.Entity;
 
 namespace Dioptric
 {
-    public class PatientContext: DbContext
+    public class PatientContext : DbContext
     {
         //定义属性，便于外部访问数据表
         public DbSet<PatientModel> Dioptrics { get { return Set<PatientModel>(); } }
+        public DbSet<InspectionModel> Inspections { get { return Set<InspectionModel>(); } }
+        public DbSet<EyeModel> Eyes { get { return Set<EyeModel>(); } }
 
         public PatientContext() : base("dbConn")
         {
