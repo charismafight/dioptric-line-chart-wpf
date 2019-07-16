@@ -19,9 +19,9 @@ namespace Dioptric
     /// <summary>
     /// CaseDetail.xaml 的交互逻辑
     /// </summary>
-    public partial class CaseDetail : MetroWindow
+    public partial class PatientDetail : MetroWindow
     {
-        public CaseDetail(object context = null)
+        public PatientDetail(object context = null)
         {
             InitializeComponent();
             if (context == null)
@@ -41,11 +41,11 @@ namespace Dioptric
             {
                 if (m.Id == 0)
                 {
-                    db.Dioptrics.Add(m);
+                    db.Patients.Add(m);
                 }
                 else
                 {
-                    var modelInDb = db.Dioptrics.Single(p => p.Id == m.Id);
+                    var modelInDb = db.Patients.Single(p => p.Id == m.Id);
                     modelInDb.GetValueOfModel(m);
                 }
                 db.SaveChanges();

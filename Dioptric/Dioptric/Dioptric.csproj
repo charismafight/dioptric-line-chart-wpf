@@ -89,7 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CaseDetail.xaml">
+    <Page Include="PatientDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,8 +109,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CaseDetail.xaml.cs">
-      <DependentUpon>CaseDetail.xaml</DependentUpon>
+    <Compile Include="PatientDetail.xaml.cs">
+      <DependentUpon>PatientDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Chart.xaml.cs">
       <DependentUpon>Chart.xaml</DependentUpon>

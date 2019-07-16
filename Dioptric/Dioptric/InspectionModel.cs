@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Dioptric
 
         public string Cycloplegia { get; set; }
 
-        public DateTime OptometryDate { get; set; }
+        public string OptometryDate { get; set; }
 
         public string Memo { get; set; }
 

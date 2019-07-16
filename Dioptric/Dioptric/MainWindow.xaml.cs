@@ -28,7 +28,7 @@ namespace Dioptric
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var win = new CaseDetail();
+            var win = new PatientDetail();
             win.ShowDialog();
 
             Window_Loaded(null, null);
@@ -38,7 +38,8 @@ namespace Dioptric
         {
             using (var db = new PatientContext())
             {
-                DataContext = db.Dioptrics.OrderBy(p => p.Name).ToList();
+                var i = db.Patients.Count();
+                DataContext = db.Patients.OrderBy(p => p.Name).ToList();
             }
         }
 
@@ -50,7 +51,7 @@ namespace Dioptric
                 return;
             }
 
-            var win = new CaseDetail(dgCase.SelectedItems[0] as PatientModel);
+            var win = new PatientDetail(dgCase.SelectedItems[0] as PatientModel);
             win.ShowDialog();
         }
 
@@ -83,8 +84,8 @@ namespace Dioptric
 
             using (var db = new PatientContext())
             {
-                db.Dioptrics.Attach(selectedItem);
-                db.Dioptrics.Remove(selectedItem);
+                db.Patients.Attach(selectedItem);
+                db.Patients.Remove(selectedItem);
                 db.SaveChanges();
             }
 
@@ -94,6 +95,27 @@ namespace Dioptric
         private void BtnShowRecord_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void DgCase_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgCase.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            var selectedItem = dgCase.SelectedItems[0] as PatientModel;
+            using (var db = new PatientContext())
+            {
+                var model = db.Patients.Include("Inspections").SingleOrDefault(p => p.Id == selectedItem.Id);
+                var ins = model.Inspections;
+                dgInspections.ItemsSource = ins;
+            }
+        }
+
+        private void DgInspections_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //加载
         }
     }
 }

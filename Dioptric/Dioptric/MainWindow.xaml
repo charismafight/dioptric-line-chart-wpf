@@ -12,8 +12,8 @@
             <RowDefinition Height="52"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -32,69 +32,21 @@
 
         <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
-                  Style="{StaticResource AzureDataGrid}"/>
+                  Style="{StaticResource AzureDataGrid}" SelectionChanged="DgCase_SelectionChanged"/>
         <Button x:Name="btnShowRecord" Grid.Row="0" Content="检查记录" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnShowRecord_Click" Height="50" Width="59"
             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="150,0,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" Text="检查记录：" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" FontSize="18" Text="检查记录：" VerticalAlignment="Top"/>
 
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="年龄：" VerticalAlignment="Center" FontSize="16"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="验光日期" VerticalAlignment="Center" FontSize="16" Grid.Column="2"/>
-            <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="16" Grid.Column="4"/>
-
-
-        </Grid>
-
-        <Grid Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-
-        </Grid>
-
-        <!--左右眼信息-->
-        <Grid Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"></ColumnDefinition>
-                <ColumnDefinition Width="50*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="6" Text="左  眼" VerticalAlignment="Center" FontSize="18"/>
-
-
-            </Grid>
-
-        </Grid>
-
+        <DataGrid x:Name="dgInspections" Grid.Row="4" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True" Style="{StaticResource AzureDataGrid}" SelectionChanged="DgInspections_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="年龄" Width="80" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="身高" Width="80" Binding="{Binding Height}"></DataGridTextColumn>
+                <DataGridTextColumn Header="体重" Width="*" Binding="{Binding Weight}"></DataGridTextColumn>
+                <DataGridTextColumn Header="睫状肌麻痹" Width="*" Binding="{Binding Cycloplegia}"></DataGridTextColumn>
+                <DataGridTextColumn Header="验光日期" Width="*" Binding="{Binding OptometryDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="备注" Width="*" Binding="{Binding Memo}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </controls:MetroWindow>

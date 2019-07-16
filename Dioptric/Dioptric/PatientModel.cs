@@ -21,8 +21,6 @@ namespace Dioptric
 
         public string IDCardNumber { get; set; }
 
-        public float Age { get; set; }
-
         public virtual ICollection<InspectionModel> Inspections { get; set; } = new HashSet<InspectionModel>();
 
 
@@ -30,7 +28,6 @@ namespace Dioptric
         {
             Name = model.Name;
             Sex = model.Sex;
-            Age = model.Age;
             IDCardNumber = model.IDCardNumber;
         }
     }
