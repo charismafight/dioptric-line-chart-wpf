@@ -35,5 +35,19 @@ namespace Dioptric
 
         public int RightEyeId { get; set; }
         public virtual EyeModel RightEye { get; set; }
+
+        public void GetValueOfModel(InspectionModel model)
+        {
+            Id = model.Id;
+            PatientId = model.PatientId;
+            Age = model.Age;
+            Height = model.Height;
+            Weight = model.Weight;
+            Cycloplegia = model.Cycloplegia;
+            OptometryDate = model.OptometryDate;
+            Memo = model.Memo;
+            LeftEyeId = model.LeftEyeId;
+            RightEyeId = model.RightEyeId;
+        }
     }
 }

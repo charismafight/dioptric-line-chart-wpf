@@ -70,6 +70,8 @@ namespace Dioptric
 
             var chart = new Chart(individualModels);
             chart.ShowDialog();
+
+            DgCase_SelectionChanged(null, null);
         }
 
         private async void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -92,9 +94,10 @@ namespace Dioptric
             Window_Loaded(null, null);
         }
 
-        private void BtnShowRecord_Click(object sender, RoutedEventArgs e)
+        private void BtnAddRecord_Click(object sender, RoutedEventArgs e)
         {
-
+            var inspectionWindow = new InspectionDetail();
+            inspectionWindow.ShowDialog();
         }
 
         private void DgCase_SelectionChanged(object sender, SelectionChangedEventArgs e)

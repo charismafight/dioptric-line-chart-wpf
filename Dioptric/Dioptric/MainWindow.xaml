@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
         Title="患者清单" Height="768" Width="1440" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="52"></RowDefinition>
@@ -33,7 +34,7 @@
         <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
                   Style="{StaticResource AzureDataGrid}" SelectionChanged="DgCase_SelectionChanged"/>
-        <Button x:Name="btnShowRecord" Grid.Row="0" Content="检查记录" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnShowRecord_Click" Height="50" Width="59"
+        <Button x:Name="btnAddRecord" Grid.Row="0" Content="新增检查记录" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnAddRecord_Click" Height="50" Width="103"
             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="150,0,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" FontSize="18" Text="检查记录：" VerticalAlignment="Top"/>
 
