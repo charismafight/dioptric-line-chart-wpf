@@ -10,23 +10,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Content="新增" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="Button_Click" Height="50" Width="50"
+        <Button Grid.Row="0" Content="新增" HorizontalAlignment="Left" VerticalAlignment="Top"  Click="Button_Click" Height="55" Width="55"
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
-        <Button x:Name="btnEdit" Grid.Row="0" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnEdit_Click" Height="50" Width="50"
-                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="50,0,0,0"/>
-        <Button x:Name="btnShowChart" Grid.Row="0" Content="显示折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowChart_Click" Height="50"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="340,2,0,0"/>
-        <Button x:Name="btnDelete" Grid.Row="0" Content="删除" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnDelete_Click" Height="50" Width="50"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="100,0,0,0"/>
+        <Button x:Name="btnEdit" Grid.Row="0" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnEdit_Click" Height="55" Width="55"
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="55,0,0,0"/>
+        <Button x:Name="btnDelete" Grid.Row="0" Content="删除" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnDelete_Click" Height="55" Width="55"
+            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="110,0,0,0"/>
 
         <TextBox HorizontalAlignment="Left" Height="23" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnQuery" Content="查  询" HorizontalAlignment="Left" Margin="125,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
@@ -34,11 +33,17 @@
         <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
                   Style="{StaticResource AzureDataGrid}" SelectionChanged="DgCase_SelectionChanged"/>
-        <Button x:Name="btnAddRecord" Grid.Row="0" Content="新增检查记录" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnAddRecord_Click" Height="50" Width="103"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="150,0,0,0"/>
+
         <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" FontSize="18" Text="检查记录：" VerticalAlignment="Top"/>
 
-        <DataGrid x:Name="dgInspections" Grid.Row="4" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
+        <Button x:Name="btnAddRecord" Grid.Row="4" Content="新增" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnAddRecord_Click" Height="55" Width="55"
+            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
+        <Button x:Name="btnEditInspection" Grid.Row="4" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnEditInspection_Click" Height="55" Width="55"
+                Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="55,0,0,0"/>
+        <Button x:Name="btnShowChart" Grid.Row="4" Content="显示折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowChart_Click" Height="55"
+            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="125,0,0,0"/>
+
+        <DataGrid x:Name="dgInspections" Grid.Row="5" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True" Style="{StaticResource AzureDataGrid}" SelectionChanged="DgInspections_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="年龄" Width="80" Binding="{Binding Age}"></DataGridTextColumn>

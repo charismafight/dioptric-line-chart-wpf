@@ -94,9 +94,15 @@ namespace Dioptric
             Window_Loaded(null, null);
         }
 
-        private void BtnAddRecord_Click(object sender, RoutedEventArgs e)
+        private async void BtnAddRecord_Click(object sender, RoutedEventArgs e)
         {
-            var inspectionWindow = new InspectionDetail();
+            if (dgCase.SelectedItems.Count <= 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个病例后操作");
+                return;
+            }
+
+            var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id);
             inspectionWindow.ShowDialog();
         }
 
@@ -119,6 +125,18 @@ namespace Dioptric
         private void DgInspections_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //加载
+        }
+
+        private async void BtnEditInspection_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgInspections.SelectedItems.Count == 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个检查记录后操作");
+                return;
+            }
+
+            var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id, dgInspections.SelectedItem as InspectionModel);
+            inspectionWindow.ShowDialog();
         }
     }
 }

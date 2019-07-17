@@ -50,5 +50,17 @@ namespace Dioptric
         /// 角膜曲率
         /// </summary>
         public string ORBSCAN { get; set; }
+
+        public void GetValueOfModel(EyeModel em)
+        {
+            Sight = em.Sight;
+            SPH = em.SPH;
+            CYL = em.CYL;
+            Direction = em.Direction;
+            CVA = em.CVA;
+            IOP = em.IOP;
+            EyeAxial = em.EyeAxial;
+            ORBSCAN = em.ORBSCAN;
+        }
     }
 }

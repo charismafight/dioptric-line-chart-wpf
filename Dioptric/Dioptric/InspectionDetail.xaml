@@ -6,7 +6,7 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="检查信息" Height="500" Width="1250">
+        Title="检查信息" Height="500" Width="1250" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
