@@ -30,9 +30,15 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnQuery" Content="查  询" HorizontalAlignment="Left" Margin="125,3,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
 
-        <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="True" CanUserResizeColumns="False" CanUserAddRows="False" 
+        <DataGrid x:Name="dgCase" SelectionMode="Single" Grid.Row="2" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"
-                  Style="{StaticResource AzureDataGrid}" SelectionChanged="DgCase_SelectionChanged"/>
+                  Style="{StaticResource AzureDataGrid}" SelectionChanged="DgCase_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Width="80" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="性别" Width="80" Binding="{Binding Sex}"></DataGridTextColumn>
+                <DataGridTextColumn Header="身份证号" Width="*" Binding="{Binding IDCardNumber}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <TextBlock HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="3" TextWrapping="Wrap" FontSize="18" Text="检查记录：" VerticalAlignment="Top"/>
 
@@ -50,7 +56,7 @@
                 <DataGridTextColumn Header="身高" Width="80" Binding="{Binding Height}"></DataGridTextColumn>
                 <DataGridTextColumn Header="体重" Width="*" Binding="{Binding Weight}"></DataGridTextColumn>
                 <DataGridTextColumn Header="睫状肌麻痹" Width="*" Binding="{Binding Cycloplegia}"></DataGridTextColumn>
-                <DataGridTextColumn Header="验光日期" Width="*" Binding="{Binding OptometryDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="验光日期" Width="*" Binding="{Binding OptometryDate,StringFormat='{}{0:yyyy-MM-dd}',ConverterCulture=zh-CN}"></DataGridTextColumn>
                 <DataGridTextColumn Header="备注" Width="*" Binding="{Binding Memo}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

@@ -6,13 +6,132 @@
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Dioptric"
         mc:Ignorable="d"
-        Title="Chart" Height="650" Width="991.483" Loaded="Window_Loaded" ResizeMode="NoResize">
-    <Grid Background="{StaticResource AccentBaseColorBrush}">
-        <Canvas Name="canGraph" Background="White"
-      Width="960" Height="600"
-      VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（岁）" FontSize="20" VerticalAlignment="Top" Canvas.Left="850" Canvas.Top="565"/>
-            <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="视力" Canvas.Top="10" FontSize="20" Width="20"/>
-        </Canvas>
-    </Grid>
+        Title="Chart" Height="29.7cm" Width="21cm" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Canvas Height="auto" Width="21cm">
+        <Grid Height="auto" Width="21cm" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="荆州市第二人民医院" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></TextBlock>
+
+            <Grid Grid.Row="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="姓名" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+
+                <TextBlock Text="性别" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+
+                <TextBlock Text="身份证" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="左  眼" VerticalAlignment="Center" FontSize="18" Grid.ColumnSpan="3" Height="22" Width="48"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Grid.ColumnSpan="3"  Grid.Column="3" Text="右  眼" VerticalAlignment="Center" FontSize="18"/>
+
+                <Grid x:Name="gridLeft" Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding LeftEye,Mode=TwoWay}" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="30*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="12" Height="16"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="12" Grid.Column="2" Height="18" />
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="12"  Grid.Column="4" Height="18" />
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Grid.Column="2" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Grid.Column="4" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Height="17"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
+
+                    <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" Width="120" />
+                </Grid>
+
+                <Grid x:Name="gridRight" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" DataContext="{Binding RightEye,Mode=TwoWay}" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="30*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                        <ColumnDefinition Width="80*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="裸眼视力：" VerticalAlignment="Center" FontSize="12" Height="16"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="球镜：" VerticalAlignment="Center" FontSize="12" Grid.Column="2" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="柱镜：" VerticalAlignment="Center" FontSize="12"  Grid.Column="4" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="轴向：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Grid.Column="2" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="12" Grid.Row="1" Grid.Column="4" Height="18"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Height="17"/>
+                    <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
+
+                    <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
+                    <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" Width="120" />
+                </Grid>
+            </Grid>
+
+            <Border Height="600" Width="600" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1">
+                <Canvas Name="canGraph" Background="White" Width="600" Height="600" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="490" Canvas.Top="565"/>
+                    <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="10" FontSize="14" Width="20"/>
+                </Canvas>
+            </Border>
+        </Grid>
+    </Canvas>
 </controls:MetroWindow>

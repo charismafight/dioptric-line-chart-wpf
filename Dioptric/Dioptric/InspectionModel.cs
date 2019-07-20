@@ -11,6 +11,12 @@ namespace Dioptric
 {
     public class InspectionModel
     {
+        public InspectionModel()
+        {
+            LeftEye = new EyeModel();
+            RightEye = new EyeModel();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

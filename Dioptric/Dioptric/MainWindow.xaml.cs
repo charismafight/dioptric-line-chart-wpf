@@ -103,6 +103,7 @@ namespace Dioptric
             }
 
             var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id);
+            inspectionWindow.Closed += (ss, ee) => DgCase_SelectionChanged(null, null);
             inspectionWindow.ShowDialog();
         }
 
@@ -136,6 +137,7 @@ namespace Dioptric
             }
 
             var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id, dgInspections.SelectedItem as InspectionModel);
+            inspectionWindow.Closed += (ss, ee) => DgCase_SelectionChanged(null, null);
             inspectionWindow.ShowDialog();
         }
     }
