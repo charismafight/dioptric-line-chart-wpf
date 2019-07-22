@@ -63,12 +63,17 @@ namespace Dioptric
                 return;
             }
 
+            if (dgInspections.SelectedItems.Count <= 0)
+            {
+                await this.ShowMessageAsync("错误", "选择一个检查记录后查看");
+                return;
+            }
+
             var selectedItem = dgCase.SelectedItems[0] as PatientModel;
 
             var all = DataContext as List<PatientModel>;
             using (var db = new PatientContext())
             {
-                var mmmm = db.Patients;
                 var individualModel = db.Patients.Include("Inspections").SingleOrDefault(p => p.IDCardNumber == selectedItem.IDCardNumber);
 
                 foreach (var inspection in individualModel.Inspections)
@@ -77,7 +82,7 @@ namespace Dioptric
                     inspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == inspection.RightEyeId);
                 }
 
-                var chart = new Chart(individualModel);
+                var chart = new Chart(individualModel, dgInspections.SelectedItem as InspectionModel);
                 chart.ShowDialog();
             }
 

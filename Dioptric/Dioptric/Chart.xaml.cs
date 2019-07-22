@@ -20,18 +20,22 @@ namespace Dioptric
     /// </summary>
     public partial class Chart : MetroWindow
     {
-        PatientModel model;
+        PatientWithInspection pwi;
 
-        public Chart(PatientModel model)
+        public Chart(PatientModel model, InspectionModel currentInspection)
         {
             InitializeComponent();
-            this.model = model;
+            pwi = new PatientWithInspection();
+            pwi.Patient = model;
+            pwi.Inspection = currentInspection;
+
+            DataContext = pwi;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DrawArea(model);
-            Title = $"姓名：{model.Name} 性别：{model.Sex} 身份证号：{model.IDCardNumber}";
+            //DrawArea(model);
+            Title = $"姓名：{pwi.Patient.Name} 性别：{pwi.Patient.Sex} 身份证号：{pwi.Patient.IDCardNumber}";
         }
 
         void DrawArea(PatientModel model)
@@ -148,4 +152,11 @@ namespace Dioptric
             //canGraph.Children.Add(polyline);
         }
     }
+
+    class PatientWithInspection
+    {
+        public PatientModel Patient { get; set; }
+        public InspectionModel Inspection { get; set; }
+    }
+
 }

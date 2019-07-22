@@ -18,7 +18,7 @@
 
             <TextBlock Text="荆州市第二人民医院" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></TextBlock>
 
-            <Grid Grid.Row="1" ShowGridLines="True">
+            <Grid Grid.Row="1" ShowGridLines="True" DataContext="{Binding Patient}">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -32,13 +32,14 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="姓名" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                 <TextBlock Text="性别" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                 <TextBlock Text="身份证" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
             </Grid>
 
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" DataContext="{Binding Inspection}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"></RowDefinition>
                     <RowDefinition></RowDefinition>
