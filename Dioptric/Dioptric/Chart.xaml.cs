@@ -20,22 +20,21 @@ namespace Dioptric
     /// </summary>
     public partial class Chart : MetroWindow
     {
-        List<PatientModel> models;
+        PatientModel model;
 
-        public Chart(List<PatientModel> models)
+        public Chart(PatientModel model)
         {
             InitializeComponent();
-            this.models = models;
+            this.model = model;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DrawArea(models);
-            var latestModel = models.OrderByDescending(p => p.Id).First();
-            Title = $"姓名：{latestModel.Name} 性别：{latestModel.Sex} 身份证号：{latestModel.IDCardNumber}";
+            DrawArea(model);
+            Title = $"姓名：{model.Name} 性别：{model.Sex} 身份证号：{model.IDCardNumber}";
         }
 
-        void DrawArea(List<PatientModel> models)
+        void DrawArea(PatientModel model)
         {
             //var maxAge = models.Max(p => p.Age);
             //var minAge = models.Min(p => p.Age);

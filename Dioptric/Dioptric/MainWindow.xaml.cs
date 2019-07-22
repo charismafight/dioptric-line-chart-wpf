@@ -66,10 +66,20 @@ namespace Dioptric
             var selectedItem = dgCase.SelectedItems[0] as PatientModel;
 
             var all = DataContext as List<PatientModel>;
-            var individualModels = all.Where(p => p.IDCardNumber == selectedItem.IDCardNumber).ToList();
+            using (var db = new PatientContext())
+            {
+                var mmmm = db.Patients;
+                var individualModel = db.Patients.Include("Inspections").SingleOrDefault(p => p.IDCardNumber == selectedItem.IDCardNumber);
 
-            var chart = new Chart(individualModels);
-            chart.ShowDialog();
+                foreach (var inspection in individualModel.Inspections)
+                {
+                    inspection.LeftEye = db.Eyes.SingleOrDefault(p => p.Id == inspection.LeftEyeId);
+                    inspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == inspection.RightEyeId);
+                }
+
+                var chart = new Chart(individualModel);
+                chart.ShowDialog();
+            }
 
             DgCase_SelectionChanged(null, null);
         }

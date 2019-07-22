@@ -80,14 +80,14 @@
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Height="17"/>
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
 
-                    <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" Width="120" />
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid x:Name="gridRight" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" DataContext="{Binding RightEye,Mode=TwoWay}" ShowGridLines="True">
@@ -115,14 +115,14 @@
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Height="17"/>
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
 
-                    <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
-                    <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" Width="120" />
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
 
