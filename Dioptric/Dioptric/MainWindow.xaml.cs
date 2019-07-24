@@ -82,7 +82,11 @@ namespace Dioptric
                     inspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == inspection.RightEyeId);
                 }
 
-                var chart = new Chart(individualModel, dgInspections.SelectedItem as InspectionModel);
+                var currentInspection = dgInspections.SelectedItem as InspectionModel;
+                currentInspection.LeftEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.LeftEyeId);
+                currentInspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.RightEyeId);
+
+                var chart = new Chart(individualModel, currentInspection);
                 chart.ShowDialog();
             }
 

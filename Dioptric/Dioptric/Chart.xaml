@@ -35,8 +35,10 @@
                 <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                 <TextBlock Text="性别" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <TextBlock Grid.Column="3" Text="{Binding Sex}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                 <TextBlock Text="身份证" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <TextBlock Grid.Column="1" Text="{Binding IDCardNumber}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
             </Grid>
 
             <Grid Grid.Row="2" DataContext="{Binding Inspection}">
@@ -81,8 +83,8 @@
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Height="17"/>
                     <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
 
-                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
-                    <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH}" VerticalAlignment="Center" />
                     <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" />
                     <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" />
                     <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
