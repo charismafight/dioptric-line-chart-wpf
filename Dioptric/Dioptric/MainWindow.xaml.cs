@@ -155,7 +155,7 @@ namespace Dioptric
                 return;
             }
 
-            var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id, dgInspections.SelectedItem as InspectionModel);
+            var inspectionWindow = new InspectionDetail((dgInspections.SelectedItem as InspectionModel).Id, dgInspections.SelectedItem as InspectionModel);
             inspectionWindow.Closed += (ss, ee) => DgCase_SelectionChanged(null, null);
             inspectionWindow.ShowDialog();
         }

@@ -129,12 +129,10 @@
                 </Grid>
             </Grid>
 
-            <Border Height="600" Width="600" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1">
-                <Canvas Name="canGraph" Background="White" Width="600" Height="600" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="490" Canvas.Top="565"/>
-                    <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="10" FontSize="14" Width="20"/>
-                </Canvas>
-            </Border>
+            <Canvas Name="canGraph" Grid.Row="3" Background="White" Width="698" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="490" Canvas.Top="565"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="10" FontSize="14" Width="20"/>
+            </Canvas>
         </Grid>
     </Canvas>
 </controls:MetroWindow>

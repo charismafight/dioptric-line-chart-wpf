@@ -19,7 +19,7 @@ namespace Dioptric
         /// <summary>
         /// 球镜
         /// </summary>
-        public string SPH { get; set; }
+        public double SPH { get; set; }
 
         /// <summary>
         /// 柱镜
