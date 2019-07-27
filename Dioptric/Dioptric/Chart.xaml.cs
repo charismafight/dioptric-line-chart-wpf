@@ -55,6 +55,7 @@ namespace Dioptric
             //scale为轴的两端空余px
             const double xscale = 50;
             double xmin = xscale;
+            double xmax = (int)canGraph.Width;
 
             const double yscale = 50;
             double ymin = yscale;
@@ -107,12 +108,22 @@ namespace Dioptric
             yaxis_path.StrokeThickness = 1;
             yaxis_path.Stroke = Brushes.Black;
             yaxis_path.Data = yaxis_geom;
-
             canGraph.Children.Add(yaxis_path);
+
+            //y2轴
+            GeometryGroup y2axis_geom = new GeometryGroup();
+            y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
+
+            Path y2axis_path = new Path();
+            y2axis_path.StrokeThickness = 1;
+            y2axis_path.Stroke = Brushes.Black;
+            y2axis_path.Data = y2axis_geom;
+            canGraph.Children.Add(y2axis_path);
+
 
             var orderedModels = model.Inspections.OrderBy(p => p.Age).ToList();
 
-            var pxPerAge = 4;
+            var pxPerAge = 3;
             var pxPerSPH = 12;
 
             //画点连线

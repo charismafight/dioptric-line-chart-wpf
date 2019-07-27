@@ -138,7 +138,11 @@ namespace Dioptric
             {
                 var model = db.Patients.Include("Inspections").SingleOrDefault(p => p.Id == selectedItem.Id);
                 var ins = model.Inspections;
-                dgInspections.ItemsSource = ins;
+                dgInspections.ItemsSource = ins.OrderByDescending(p=>p.Id);
+                if (ins.Any())
+                {
+                    dgInspections.SelectedIndex = 0;
+                }
             }
         }
 
