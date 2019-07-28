@@ -129,9 +129,11 @@
                 </Grid>
             </Grid>
 
-            <Canvas Name="canGraph" Grid.Row="3" Background="White" Width="698" Height="500" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="630" Canvas.Top="250"/>
-                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="10" FontSize="14" Width="20"/>
+            <Canvas Name="canGraph" Grid.Row="3" Margin="30,50,30,0" Background="White" Width="698" Height="600" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="400"/>
+                <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="-20" FontSize="14" Width="20"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="眼 轴" Width="20" FontSize="14" VerticalAlignment="Top" Canvas.Left="720" Canvas.Top="-20"/>
+                <TextBlock Canvas.Left="580" Canvas.Top="310" TextWrapping="Wrap" FontSize="14" Text="身 高（0-180cm）" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
             </Canvas>
         </Grid>
     </Canvas>

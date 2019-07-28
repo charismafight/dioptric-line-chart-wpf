@@ -67,23 +67,49 @@ namespace Dioptric
             //x坐标使用年龄以月为单位，从0-216个月即18岁为止，所以步长为4，共216个刻度698宽
             double xstep = 3;
             //y1坐标使用屈光度，从-20到+30,步长6，共100个刻度600高
-            double ystep = 6;
+            double y1step = 6;
+            //y2坐标眼轴，从 5到35，共30高度分为300个刻度
+            double y2step = 3;
 
-            //坐标原点
-            var oiriginPositionY = ymax / 2;
+            //坐标原点，在y最大值的3分之2处
+            var oiriginPositionY = ymax / 3 * 2;
             var originPostionX = 0;
 
             // Make the X axis.
             GeometryGroup xaxis_geom = new GeometryGroup();
             //x轴线
-            //ymax/2表示x轴放在y轴的中间，形成+-效果
+            //ymax / 3 * 2;表示x轴放在y轴的中间，形成+-效果
             xaxis_geom.Children.Add(new LineGeometry(new Point(0, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY)));
             //x轴点
             for (double x = xmin + xstep; x <= canGraph.Width - xstep; x += xstep)
             {
+                var additional = 0;
+
+
+                var y1 = oiriginPositionY - margin / 2;
+                var y2 = oiriginPositionY + margin / 2;
+
+                if ((x - xmin) % 36 == 0)
+                {
+                    additional = 3;
+
+                    //x轴画刻度
+                    //每一岁即12个月
+                    var tb = new TextBlock
+                    {
+                        Text = ((x - xmin) / 36).ToString(),
+                    };
+                    Canvas.SetLeft(tb, x);
+                    //往下移5个px防止重叠
+                    Canvas.SetTop(tb, y1 + 5);
+                    canGraph.Children.Add(tb);
+                    //每10cm
+                    //最终是18个节点
+                }
+
                 xaxis_geom.Children.Add(new LineGeometry(
-                    new Point(x, oiriginPositionY - margin / 2),
-                    new Point(x, oiriginPositionY + margin / 2)));
+                    new Point(x, y1 - additional),
+                    new Point(x, y2 + additional)));
             }
 
             Path xaxis_path = new Path();
@@ -96,12 +122,33 @@ namespace Dioptric
             //// Make the Y ayis.
             GeometryGroup yaxis_geom = new GeometryGroup();
             yaxis_geom.Children.Add(new LineGeometry(
-                new Point(xmin, 0), new Point(xmin, canGraph.Height)));
-            for (double y = ystep; y <= canGraph.Height - ystep; y += ystep)
+                    new Point(xmin, 0), new Point(xmin, canGraph.Height)));
+            for (double y = 0; y <= canGraph.Height - y1step; y += y1step)
             {
+                var additional = 0;
+
+                if (y % 12 == 0)
+                {
+                    additional = 3;
+
+                    var tb = new TextBlock
+                    {
+                        Text = (y / 12 - 20).ToString(),
+                    };
+                    Canvas.SetLeft(tb, 15);
+                    //往下移5个px防止重叠
+                    Canvas.SetTop(tb, (int)canGraph.Height - y);
+                    canGraph.Children.Add(tb);
+                    //每10cm
+                    //最终是18个节点
+                }
+
+                var x1 = xmin - margin / 2 - additional;
+                var x2 = xmin + margin / 2 + additional;
+
                 yaxis_geom.Children.Add(new LineGeometry(
-                    new Point(xmin - margin / 2, y),
-                    new Point(xmin + margin / 2, y)));
+                    new Point(x1, y),
+                    new Point(x2, y)));
             }
 
             Path yaxis_path = new Path();
@@ -110,9 +157,16 @@ namespace Dioptric
             yaxis_path.Data = yaxis_geom;
             canGraph.Children.Add(yaxis_path);
 
-            //y2轴
+            //y2轴,，眼轴
             GeometryGroup y2axis_geom = new GeometryGroup();
             y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
+            //y2轴点
+            for (double y = y2step; y <= canGraph.Height - y2step; y += y2step)
+            {
+                xaxis_geom.Children.Add(new LineGeometry(
+                    new Point(xmax - margin / 2, y),
+                    new Point(xmax + margin / 2, y)));
+            }
 
             Path y2axis_path = new Path();
             y2axis_path.StrokeThickness = 1;
