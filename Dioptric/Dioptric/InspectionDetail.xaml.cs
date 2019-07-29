@@ -20,12 +20,12 @@ namespace Dioptric
     /// </summary>
     public partial class InspectionDetail : MetroWindow
     {
-        int currentId;
+        int currentPatientId;
         public InspectionDetail(int id, InspectionModel context = null)
         {
             InitializeComponent();
 
-            currentId = id;
+            currentPatientId = id;
 
             if (context == null)
             {
@@ -55,7 +55,7 @@ namespace Dioptric
 
             using (var db = new PatientContext())
             {
-                m.PatientId = currentId;
+                m.PatientId = currentPatientId;
                 if (m.Id == 0)
                 {
                     db.Eyes.Add(m.LeftEye);

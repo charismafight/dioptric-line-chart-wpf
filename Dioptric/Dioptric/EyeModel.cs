@@ -44,7 +44,7 @@ namespace Dioptric
         /// <summary>
         /// 眼轴
         /// </summary>
-        public string EyeAxial { get; set; }
+        public double EyeAxial { get; set; }
 
         /// <summary>
         /// 角膜曲率

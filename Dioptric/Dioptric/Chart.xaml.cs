@@ -105,6 +105,13 @@ namespace Dioptric
                     canGraph.Children.Add(tb);
                     //每10cm
                     //最终是18个节点
+                    var tbHeight = new TextBlock
+                    {
+                        Text = ((x - xmin) / 36 * 10).ToString(),
+                    };
+                    Canvas.SetLeft(tbHeight, x);
+                    Canvas.SetTop(tbHeight, y1 - 20);
+                    canGraph.Children.Add(tbHeight);
                 }
 
                 xaxis_geom.Children.Add(new LineGeometry(
@@ -123,11 +130,11 @@ namespace Dioptric
             GeometryGroup yaxis_geom = new GeometryGroup();
             yaxis_geom.Children.Add(new LineGeometry(
                     new Point(xmin, 0), new Point(xmin, canGraph.Height)));
-            for (double y = 0; y <= canGraph.Height - y1step; y += y1step)
+            for (double y = 0; y <= canGraph.Height; y += y1step)
             {
                 var additional = 0;
 
-                if (y % 12 == 0)
+                if (y % 24 == 0)
                 {
                     additional = 3;
 
@@ -161,11 +168,30 @@ namespace Dioptric
             GeometryGroup y2axis_geom = new GeometryGroup();
             y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
             //y2轴点
-            for (double y = y2step; y <= canGraph.Height - y2step; y += y2step)
+            for (double y = 0; y <= canGraph.Height; y += y2step)
             {
-                xaxis_geom.Children.Add(new LineGeometry(
-                    new Point(xmax - margin / 2, y),
-                    new Point(xmax + margin / 2, y)));
+                var additional = 0;
+
+                if (y % 30 == 0)
+                {
+                    additional = 3;
+
+                    var tb = new TextBlock
+                    {
+                        Text = (y / 30 + 5).ToString(),
+                    };
+                    Canvas.SetLeft(tb, xmax + 10);
+                    //往下移5个px防止重叠
+                    Canvas.SetTop(tb, canGraph.Height - y);
+                    canGraph.Children.Add(tb);
+                }
+
+                var x1 = xmax - margin / 2 - additional;
+                var x2 = xmax + margin / 2 + additional;
+
+                y2axis_geom.Children.Add(new LineGeometry(
+                    new Point(x1, y),
+                    new Point(x2, y)));
             }
 
             Path y2axis_path = new Path();
@@ -180,7 +206,7 @@ namespace Dioptric
             var pxPerAge = 3;
             var pxPerSPH = 12;
 
-            //画点连线
+            //画点连线，年龄
             for (int i = 0; i < orderedModels.Count; i++)
             {
                 //月份x每月占像素，先把岁转成月，后续按照实际月份来算
@@ -195,27 +221,6 @@ namespace Dioptric
                 var yRightEye = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
 
                 points.Add(new Point(x, yLeftEye));
-
-                //var tbX = new TextBlock();
-                //tbX.Text = orderedModels[i].Age.ToString();
-                //Canvas.SetLeft(tbX, x);
-                //Canvas.SetTop(tbX, ymax);
-                //canGraph.Children.Add(tbX);
-
-                //var tbY = new TextBlock();
-                //tbY.Text = orderedModels[i].LeftEye.SPH.ToString();
-                //if (orderedModels[i].LeftEye.SPH == 30)
-                //{
-                //    Canvas.SetTop(tbY, yLeftEye - 15);
-                //}
-                //else
-                //{
-                //    Canvas.SetTop(tbY, yLeftEye);
-                //}
-
-                //Canvas.SetLeft(tbY, xmin - 20);
-
-                //canGraph.Children.Add(tbY);
             }
 
             Polyline polyline = new Polyline();
@@ -224,6 +229,27 @@ namespace Dioptric
             polyline.Points = points;
 
             canGraph.Children.Add(polyline);
+
+            var pointsHeight = new PointCollection();
+            var heightOrderedModels = model.Inspections.OrderBy(p => p.Height).ToList();
+            var pxPerHeight = 3.6111;
+            var pxPerEyeAxial = 3;
+            //画点连线，身高
+            for (int i = 0; i < heightOrderedModels.Count; i++)
+            {
+                var x = xmin + heightOrderedModels[i].Height * pxPerHeight;
+
+                var y = oiriginPositionY - (heightOrderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
+
+                pointsHeight.Add(new Point(x, y));
+            }
+
+            Polyline polylineHeight = new Polyline();
+            polylineHeight.StrokeThickness = 2;
+            polylineHeight.Stroke = Brushes.Blue;
+            polylineHeight.Points = pointsHeight;
+
+            canGraph.Children.Add(polylineHeight);
         }
     }
 
