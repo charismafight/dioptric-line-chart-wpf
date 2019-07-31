@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,15 @@ namespace Dioptric
     {
         PatientWithInspection pwi;
 
-        public Chart(PatientModel model, InspectionModel currentInspection)
+        bool leftEye;
+
+        public Chart(PatientModel model, InspectionModel currentInspection, bool leftEye = true)
         {
             InitializeComponent();
             pwi = new PatientWithInspection();
             pwi.Patient = model;
             pwi.Inspection = currentInspection;
+            this.leftEye = leftEye;
 
             DataContext = pwi;
 
@@ -220,7 +224,7 @@ namespace Dioptric
                 //右眼
                 var yRightEye = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
 
-                points.Add(new Point(x, yLeftEye));
+                points.Add(new Point(x, leftEye ? yLeftEye : yRightEye));
             }
 
             Polyline polyline = new Polyline();
@@ -239,9 +243,10 @@ namespace Dioptric
             {
                 var x = xmin + heightOrderedModels[i].Height * pxPerHeight;
 
-                var y = oiriginPositionY - (heightOrderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
+                var yLeft = oiriginPositionY - (heightOrderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
+                var yRight = oiriginPositionY - (heightOrderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
 
-                pointsHeight.Add(new Point(x, y));
+                pointsHeight.Add(new Point(x, leftEye ? yLeft : yRight));
             }
 
             Polyline polylineHeight = new Polyline();
@@ -251,12 +256,43 @@ namespace Dioptric
 
             canGraph.Children.Add(polylineHeight);
         }
+
+        private async void Canvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageDialogResult clickresult = await this.ShowMessageAsync(this.Title, "是否确定打印本页？", MessageDialogStyle.AffirmativeAndNegative);
+            if (clickresult == MessageDialogResult.Negative)
+            {
+                return;
+            }
+
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                printTime.Text = DateTime.Now.ToString("yyyy年MM月dd日");
+                dialog.PrintVisual(canvasMain, "Print");
+            }
+        }
     }
 
     class PatientWithInspection
     {
         public PatientModel Patient { get; set; }
         public InspectionModel Inspection { get; set; }
+
+        public string OpDate
+        {
+            get
+            {
+                DateTime result;
+                if (DateTime.TryParse(Inspection.OptometryDate, out result))
+                {
+                    return result.ToString("yyyy年MM月dd日");
+                }
+
+                return string.Empty;
+            }
+            set { }
+        }
     }
 
 }

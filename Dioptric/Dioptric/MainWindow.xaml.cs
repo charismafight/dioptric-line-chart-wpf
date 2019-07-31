@@ -57,6 +57,16 @@ namespace Dioptric
 
         private async void BtnShowChart_Click(object sender, RoutedEventArgs e)
         {
+            ShowChart(true);
+        }
+
+        private async void BtnShowRightEyeChart_Click(object sender, RoutedEventArgs e)
+        {
+            ShowChart(false);
+        }
+
+        private async void ShowChart(bool leftEye)
+        {
             if (dgCase.SelectedItems.Count <= 0)
             {
                 await this.ShowMessageAsync("错误", "选择一个病例后查看");
@@ -86,7 +96,7 @@ namespace Dioptric
                 currentInspection.LeftEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.LeftEyeId);
                 currentInspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.RightEyeId);
 
-                var chart = new Chart(individualModel, currentInspection);
+                var chart = new Chart(individualModel, currentInspection, leftEye);
                 chart.ShowDialog();
             }
 
@@ -138,7 +148,7 @@ namespace Dioptric
             {
                 var model = db.Patients.Include("Inspections").SingleOrDefault(p => p.Id == selectedItem.Id);
                 var ins = model.Inspections;
-                dgInspections.ItemsSource = ins.OrderByDescending(p=>p.Id);
+                dgInspections.ItemsSource = ins.OrderByDescending(p => p.Id);
                 if (ins.Any())
                 {
                     dgInspections.SelectedIndex = 0;
@@ -159,7 +169,7 @@ namespace Dioptric
                 return;
             }
 
-            var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as InspectionModel).Id, dgInspections.SelectedItem as InspectionModel);
+            var inspectionWindow = new InspectionDetail((dgCase.SelectedItem as PatientModel).Id, dgInspections.SelectedItem as InspectionModel);
             inspectionWindow.Closed += (ss, ee) => DgCase_SelectionChanged(null, null);
             inspectionWindow.ShowDialog();
         }
