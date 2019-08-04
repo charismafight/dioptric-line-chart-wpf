@@ -35,7 +35,7 @@ namespace Dioptric
             {
                 using (var db = new PatientContext())
                 {
-                    var ins = db.Inspections.Single(p => p.Id == id);
+                    var ins = context;
                     context.LeftEye = db.Eyes.Single(p => p.Id == ins.LeftEyeId);
                     context.RightEye = db.Eyes.Single(p => p.Id == ins.RightEyeId);
                 }
@@ -70,14 +70,17 @@ namespace Dioptric
                 }
                 else
                 {
+                    var modelInDb = db.Inspections.Single(p => p.Id == m.Id);
+                    modelInDb.GetValueOfModel(m);
+
                     var leftEyeInDb = db.Eyes.Single(p => p.Id == m.LeftEye.Id);
                     //赋值
                     var rightEyeInDb = db.Eyes.Single(p => p.Id == m.RightEye.Id);
                     leftEyeInDb.GetValueOfModel(m.LeftEye);
                     rightEyeInDb.GetValueOfModel(m.RightEye);
 
-                    var modelInDb = db.Inspections.Single(p => p.Id == m.Id);
-                    modelInDb.GetValueOfModel(m);
+                    modelInDb.LeftEye = leftEyeInDb;
+                    modelInDb.RightEye = rightEyeInDb;
                 }
                 db.SaveChanges();
             }
