@@ -214,7 +214,7 @@ namespace Dioptric
             for (int i = 0; i < orderedModels.Count; i++)
             {
                 //月份x每月占像素，先把岁转成月，后续按照实际月份来算
-                var x = xmin + orderedModels[i].Age * 12 * pxPerAge;
+                var x = xmin + orderedModels[i].Age * pxPerAge;
 
                 //y轴有些不同，y的最大值是坐标0点，但是在画布上是左下角点（即top大，left0的点）
                 //所以用视力的最大值去减，得到的结果就从y的最小值上按比例加，越大越靠上方

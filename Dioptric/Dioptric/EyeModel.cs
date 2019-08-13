@@ -47,9 +47,14 @@ namespace Dioptric
         public double EyeAxial { get; set; }
 
         /// <summary>
-        /// 角膜曲率
+        /// 角膜曲率1
         /// </summary>
-        public string ORBSCAN { get; set; }
+        public string K1 { get; set; }
+
+        /// <summary>
+        /// 角膜曲率2
+        /// </summary>
+        public string K2 { get; set; }
 
         public void GetValueOfModel(EyeModel em)
         {
@@ -60,7 +65,8 @@ namespace Dioptric
             CVA = em.CVA;
             IOP = em.IOP;
             EyeAxial = em.EyeAxial;
-            ORBSCAN = em.ORBSCAN;
+            K1 = em.K1;
+            K2 = em.K2;
         }
     }
 }

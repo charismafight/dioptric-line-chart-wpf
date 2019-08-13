@@ -24,7 +24,24 @@ namespace Dioptric
         public int PatientId { get; set; }
         public virtual PatientModel Patient { get; set; }
 
-        public float Age { get; set; }
+        /// <summary>
+        /// 年龄以月为单位，根据出生日期计算
+        /// </summary>
+        [NotMapped]
+        public int Age
+        {
+            get
+            {
+                if (Patient == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return (DateTime.Parse(OptometryDate).Year * 12 + DateTime.Parse(OptometryDate).Month) - (Patient.BirthDate.Year * 12 + Patient.BirthDate.Month);
+                }
+            }
+        }
 
         public float Height { get; set; }
 
@@ -46,7 +63,6 @@ namespace Dioptric
         {
             Id = model.Id;
             PatientId = model.PatientId;
-            Age = model.Age;
             Height = model.Height;
             Weight = model.Weight;
             Cycloplegia = model.Cycloplegia;

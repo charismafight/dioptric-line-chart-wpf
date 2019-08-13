@@ -111,6 +111,8 @@ namespace Dioptric
                 return;
             }
 
+
+
             var selectedItem = dgCase.SelectedItems[0] as PatientModel;
 
             using (var db = new PatientContext())

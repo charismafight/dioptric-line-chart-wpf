@@ -36,7 +36,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="姓名" Width="80" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="性别" Width="80" Binding="{Binding Sex}"></DataGridTextColumn>
-                <DataGridTextColumn Header="身份证号" Width="*" Binding="{Binding IDCardNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="身份证号" Width="120" Binding="{Binding IDCardNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="出生日期" Width="*" Binding="{Binding BirthDate}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
