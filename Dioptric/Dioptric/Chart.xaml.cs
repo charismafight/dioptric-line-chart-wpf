@@ -294,5 +294,4 @@ namespace Dioptric
             set { }
         }
     }
-
 }

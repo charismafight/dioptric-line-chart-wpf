@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Dioptric
 {
-    public class InspectionModel
+    public class InspectionModel : INotifyPropertyChanged
     {
         public InspectionModel()
         {
@@ -24,6 +25,26 @@ namespace Dioptric
         public int PatientId { get; set; }
         public virtual PatientModel Patient { get; set; }
 
+        [NotMapped]
+        private DateTime _birthDate;
+        [NotMapped]
+        public DateTime BirthDate
+        {
+            get
+            {
+                if (Patient != null)
+                {
+                    return Patient.BirthDate;
+                }
+
+                return _birthDate;
+            }
+            set
+            {
+                _birthDate = value;
+            }
+        }
+
         /// <summary>
         /// 年龄以月为单位，根据出生日期计算
         /// </summary>
@@ -32,14 +53,18 @@ namespace Dioptric
         {
             get
             {
-                if (Patient == null)
+                if (Patient == null || string.IsNullOrWhiteSpace(OptometryDate))
                 {
                     return 0;
                 }
                 else
                 {
-                    return (DateTime.Parse(OptometryDate).Year * 12 + DateTime.Parse(OptometryDate).Month) - (Patient.BirthDate.Year * 12 + Patient.BirthDate.Month);
+                    return (DateTime.Parse(OptometryDate).Year * 12 + DateTime.Parse(OptometryDate).Month) - (BirthDate.Year * 12 + BirthDate.Month);
                 }
+            }
+            set
+            {
+
             }
         }
 
@@ -49,7 +74,24 @@ namespace Dioptric
 
         public string Cycloplegia { get; set; }
 
-        public string OptometryDate { get; set; }
+        [NotMapped]
+        private string _optometryDate;
+        public string OptometryDate
+        {
+            get
+            {
+                return _optometryDate;
+            }
+
+            set
+            {
+                _optometryDate = value;
+                NotifyPropertyChange("Age");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChange(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public string Memo { get; set; }
 

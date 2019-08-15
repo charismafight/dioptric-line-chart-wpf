@@ -41,6 +41,13 @@ namespace Dioptric
                 }
             }
 
+            //给context的病人对象赋值
+            using (var db = new PatientContext())
+            {
+                var patient = db.Patients.Single(p => p.Id == id);
+                context.BirthDate = patient.BirthDate;
+            }
+
             DataContext = context;
         }
 

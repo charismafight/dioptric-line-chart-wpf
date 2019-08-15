@@ -53,9 +53,9 @@
         <DataGrid x:Name="dgInspections" Grid.Row="5" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True" Style="{StaticResource AzureDataGrid}" SelectionChanged="DgInspections_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="年龄" Width="80" Binding="{Binding Age}"></DataGridTextColumn>
-                <DataGridTextColumn Header="身高" Width="80" Binding="{Binding Height}"></DataGridTextColumn>
-                <DataGridTextColumn Header="体重" Width="*" Binding="{Binding Weight}"></DataGridTextColumn>
+                <DataGridTextColumn Header="年龄（月）" Width="80" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="身高（厘米）" Width="80" Binding="{Binding Height}"></DataGridTextColumn>
+                <DataGridTextColumn Header="体重（公斤）" Width="*" Binding="{Binding Weight}"></DataGridTextColumn>
                 <DataGridTextColumn Header="睫状肌麻痹" Width="*" Binding="{Binding Cycloplegia}"></DataGridTextColumn>
                 <DataGridTextColumn Header="验光日期" Width="*" Binding="{Binding OptometryDate,StringFormat='{}{0:yyyy-MM-dd}',ConverterCulture=zh-CN}"></DataGridTextColumn>
                 <DataGridTextColumn Header="备注" Width="*" Binding="{Binding Memo}"></DataGridTextColumn>
