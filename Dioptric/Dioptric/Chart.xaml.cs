@@ -168,41 +168,43 @@ namespace Dioptric
             yaxis_path.Data = yaxis_geom;
             canGraph.Children.Add(yaxis_path);
 
-            //y2轴,，眼轴
-            GeometryGroup y2axis_geom = new GeometryGroup();
-            y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
-            //y2轴点
-            for (double y = 0; y <= canGraph.Height; y += y2step)
-            {
-                var additional = 0;
 
-                if (y % 30 == 0)
-                {
-                    additional = 3;
+            DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 10);
+            ////y2轴,，眼轴
+            //GeometryGroup y2axis_geom = new GeometryGroup();
+            //y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
+            ////y2轴点
+            //for (double y = 0; y <= canGraph.Height; y += y2step)
+            //{
+            //    var additional = 0;
 
-                    var tb = new TextBlock
-                    {
-                        Text = (y / 30 + 5).ToString(),
-                    };
-                    Canvas.SetLeft(tb, xmax + 10);
-                    //往下移5个px防止重叠
-                    Canvas.SetTop(tb, canGraph.Height - y);
-                    canGraph.Children.Add(tb);
-                }
+            //    if (y % 30 == 0)
+            //    {
+            //        additional = 3;
 
-                var x1 = xmax - margin / 2 - additional;
-                var x2 = xmax + margin / 2 + additional;
+            //        var tb = new TextBlock
+            //        {
+            //            Text = (y / 30 + 5).ToString(),
+            //        };
+            //        Canvas.SetLeft(tb, xmax + 10);
+            //        //往下移5个px防止重叠
+            //        Canvas.SetTop(tb, canGraph.Height - y);
+            //        canGraph.Children.Add(tb);
+            //    }
 
-                y2axis_geom.Children.Add(new LineGeometry(
-                    new Point(x1, y),
-                    new Point(x2, y)));
-            }
+            //    var x1 = xmax - margin / 2 - additional;
+            //    var x2 = xmax + margin / 2 + additional;
 
-            Path y2axis_path = new Path();
-            y2axis_path.StrokeThickness = 1;
-            y2axis_path.Stroke = Brushes.Black;
-            y2axis_path.Data = y2axis_geom;
-            canGraph.Children.Add(y2axis_path);
+            //    y2axis_geom.Children.Add(new LineGeometry(
+            //        new Point(x1, y),
+            //        new Point(x2, y)));
+            //}
+
+            //Path y2axis_path = new Path();
+            //y2axis_path.StrokeThickness = 1;
+            //y2axis_path.Stroke = Brushes.Black;
+            //y2axis_path.Data = y2axis_geom;
+            //canGraph.Children.Add(y2axis_path);
 
 
             var orderedModels = model.Inspections.OrderBy(p => p.Age).ToList();
@@ -271,6 +273,46 @@ namespace Dioptric
                 printTime.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 dialog.PrintVisual(canvasMain, "Print");
             }
+        }
+
+
+        void DrawAxis(Point start, Point end, int scaleCount)
+        {
+            var geom = new GeometryGroup();
+            //轴线
+            var line = new LineGeometry(start, end);
+            geom.Children.Add(line);
+            //在点间画刻度
+            var diffX = end.X - start.X;
+            var diffY = end.Y - start.Y;
+            //差值除以刻度数量
+            var stepX = diffX / scaleCount;
+            var stepY = diffY / scaleCount;
+
+            const double margin = 5;
+
+            for (int i = 0; i < scaleCount; i++)
+            {
+                //把轴线分割成n份
+                var x = start.X + stepX * (i + 1);
+                var y = start.Y + stepY * (i + 1);
+
+                //不做三角距离处理（即斜线的刻度）
+                //只考虑横竖的话，那么diffX和diffY一定会有一个为0
+                var xM = diffX == 0 ? 0 : 1;
+                var yM = diffY == 0 ? 0 : 1;
+
+                //这里x和y轴是相反的，当xM为0的时候表示x要波动形成垂直于y轴的刻度
+                var scaleLine = new LineGeometry(new Point(x + margin * yM, y + margin * xM), new Point(x - margin * yM, y - margin * xM));
+                geom.Children.Add(scaleLine);
+            }
+
+            var path = new Path();
+            path.StrokeThickness = 1;
+            path.Stroke = Brushes.Black;
+            path.Data = geom;
+
+            canGraph.Children.Add(path);
         }
     }
 
