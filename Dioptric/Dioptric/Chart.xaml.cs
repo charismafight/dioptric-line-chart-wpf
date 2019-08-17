@@ -79,56 +79,58 @@ namespace Dioptric
             var oiriginPositionY = ymax / 3 * 2;
             var originPostionX = 0;
 
-            // Make the X axis.
-            GeometryGroup xaxis_geom = new GeometryGroup();
-            //x轴线
-            //ymax / 3 * 2;表示x轴放在y轴的中间，形成+-效果
-            xaxis_geom.Children.Add(new LineGeometry(new Point(0, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY)));
-            //x轴点
-            for (double x = xmin + xstep; x <= canGraph.Width - xstep; x += xstep)
-            {
-                var additional = 0;
+            DrawAxis(new Point(xmin, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY), 180);
+
+            //// Make the X axis.
+            //GeometryGroup xaxis_geom = new GeometryGroup();
+            ////x轴线
+            ////ymax / 3 * 2;表示x轴放在y轴的中间，形成+-效果
+            //xaxis_geom.Children.Add(new LineGeometry(new Point(0, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY)));
+            ////x轴点
+            //for (double x = xmin + xstep; x <= canGraph.Width - xstep; x += xstep)
+            //{
+            //    var additional = 0;
 
 
-                var y1 = oiriginPositionY - margin / 2;
-                var y2 = oiriginPositionY + margin / 2;
+            //    var y1 = oiriginPositionY - margin / 2;
+            //    var y2 = oiriginPositionY + margin / 2;
 
-                if ((x - xmin) % 36 == 0)
-                {
-                    additional = 3;
+            //    if ((x - xmin) % 36 == 0)
+            //    {
+            //        additional = 3;
 
-                    //x轴画刻度
-                    //每一岁即12个月
-                    var tb = new TextBlock
-                    {
-                        Text = ((x - xmin) / 36).ToString(),
-                    };
-                    Canvas.SetLeft(tb, x);
-                    //往下移5个px防止重叠
-                    Canvas.SetTop(tb, y1 + 5);
-                    canGraph.Children.Add(tb);
-                    //每10cm
-                    //最终是18个节点
-                    var tbHeight = new TextBlock
-                    {
-                        Text = ((x - xmin) / 36 * 10).ToString(),
-                    };
-                    Canvas.SetLeft(tbHeight, x);
-                    Canvas.SetTop(tbHeight, y1 - 20);
-                    canGraph.Children.Add(tbHeight);
-                }
+            //        //x轴画刻度
+            //        //每一岁即12个月
+            //        var tb = new TextBlock
+            //        {
+            //            Text = ((x - xmin) / 36).ToString(),
+            //        };
+            //        Canvas.SetLeft(tb, x);
+            //        //往下移5个px防止重叠
+            //        Canvas.SetTop(tb, y1 + 5);
+            //        canGraph.Children.Add(tb);
+            //        //每10cm
+            //        //最终是18个节点
+            //        var tbHeight = new TextBlock
+            //        {
+            //            Text = ((x - xmin) / 36 * 10).ToString(),
+            //        };
+            //        Canvas.SetLeft(tbHeight, x);
+            //        Canvas.SetTop(tbHeight, y1 - 20);
+            //        canGraph.Children.Add(tbHeight);
+            //    }
 
-                xaxis_geom.Children.Add(new LineGeometry(
-                    new Point(x, y1 - additional),
-                    new Point(x, y2 + additional)));
-            }
+            //    xaxis_geom.Children.Add(new LineGeometry(
+            //        new Point(x, y1 - additional),
+            //        new Point(x, y2 + additional)));
+            //}
 
-            Path xaxis_path = new Path();
-            xaxis_path.StrokeThickness = 1;
-            xaxis_path.Stroke = Brushes.Black;
-            xaxis_path.Data = xaxis_geom;
+            //Path xaxis_path = new Path();
+            //xaxis_path.StrokeThickness = 1;
+            //xaxis_path.Stroke = Brushes.Black;
+            //xaxis_path.Data = xaxis_geom;
 
-            canGraph.Children.Add(xaxis_path);
+            //canGraph.Children.Add(xaxis_path);
 
             //// Make the Y ayis.
             GeometryGroup yaxis_geom = new GeometryGroup();
@@ -169,7 +171,7 @@ namespace Dioptric
             canGraph.Children.Add(yaxis_path);
 
 
-            DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 10);
+            DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 200);
             ////y2轴,，眼轴
             //GeometryGroup y2axis_geom = new GeometryGroup();
             //y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));
@@ -276,26 +278,38 @@ namespace Dioptric
         }
 
 
-        void DrawAxis(Point start, Point end, int scaleCount)
+        /// <summary>
+        /// 画轴线，刻度只在轴线为水平或垂直状态下有效
+        /// </summary>
+        /// <param name="start">开始点位置</param>
+        /// <param name="end">结束点位置</param>
+        /// <param name="scaleCount">刻度数量</param>
+        /// <param name="sectionCount">大刻度数量（以多少小刻度为一个大刻度）</param>
+        void DrawAxis(Point start, Point end, int scaleCount, int sectionCount = 10)
         {
             var geom = new GeometryGroup();
             //轴线
             var line = new LineGeometry(start, end);
             geom.Children.Add(line);
             //在点间画刻度
-            var diffX = end.X - start.X;
-            var diffY = end.Y - start.Y;
+            var diffX = end.X - start.X - 1;
+            diffX = diffX < 0 ? 0 : diffX;
+
+            var diffY = end.Y - start.Y - 1;
+            diffY = diffY < 0 ? 0 : diffY;
+
             //差值除以刻度数量
             var stepX = diffX / scaleCount;
             var stepY = diffY / scaleCount;
 
-            const double margin = 5;
+            const double margin = 3;
 
-            for (int i = 0; i < scaleCount; i++)
+            //刻度数比分格多1
+            for (int i = 0; i < scaleCount + 1; i++)
             {
                 //把轴线分割成n份
-                var x = start.X + stepX * (i + 1);
-                var y = start.Y + stepY * (i + 1);
+                var x = start.X + stepX * (i);
+                var y = start.Y + stepY * (i);
 
                 //不做三角距离处理（即斜线的刻度）
                 //只考虑横竖的话，那么diffX和diffY一定会有一个为0

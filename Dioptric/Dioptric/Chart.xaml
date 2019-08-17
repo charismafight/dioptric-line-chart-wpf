@@ -5,27 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Chart" Loaded="Window_Loaded" ResizeMode="NoResize" Width="22cm" WindowStartupLocation="CenterScreen">
+        Title="Chart" Loaded="Window_Loaded" ResizeMode="NoResize" Height="1000" Width="22cm" WindowStartupLocation="CenterScreen">
     
     <ScrollViewer x:Name="sv" VerticalScrollBarVisibility="Auto">
         <Canvas x:Name="canvasMain" Height="29.7cm" Width="21cm" MouseRightButtonUp="Canvas_MouseRightButtonUp">
             <Grid Height="auto" Width="21cm">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="250"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="荆州市第二人民医院" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></TextBlock>
+                <TextBlock Text="荆州市中心医院" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"></TextBlock>
 
                 <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12" Margin="0,0,8,0" RenderTransformOrigin="0.4,0.733">
                 <Run Text="检查日期："></Run>
                 <Run Text="{Binding OpDate}"></Run>
                 </TextBlock>
 
-                <Grid Grid.Row="2" Height="50" DataContext="{Binding Patient}">
+                <Grid Grid.Row="2" Height="35" DataContext="{Binding Patient}">
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
@@ -63,7 +63,7 @@
 
                 <Grid Grid.Row="3" DataContext="{Binding Inspection}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -202,7 +202,7 @@
                     </Grid>
                 </Grid>
 
-                <Canvas Name="canGraph" Grid.Row="4" Margin="30,50,30,0" Background="White" Width="698" Height="600" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Canvas Name="canGraph" Grid.Row="4" Margin="30,50,30,0" Background="White" Width="698" Height="601" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年 龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="400"/>
                     <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="-20" FontSize="14" Width="20"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="眼 轴" Width="20" FontSize="14" VerticalAlignment="Top" Canvas.Left="720" Canvas.Top="-20"/>
