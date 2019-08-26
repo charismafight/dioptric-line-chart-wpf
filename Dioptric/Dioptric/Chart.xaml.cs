@@ -171,7 +171,7 @@ namespace Dioptric
             canGraph.Children.Add(yaxis_path);
 
 
-            DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 200);
+            DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 180);
             ////y2轴,，眼轴
             //GeometryGroup y2axis_geom = new GeometryGroup();
             //y2axis_geom.Children.Add(new LineGeometry(new Point(xmax, 0), new Point(xmax, canGraph.Height)));

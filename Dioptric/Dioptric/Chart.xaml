@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        mc:Ignorable="d"
+        xmlns:converter="clr-namespace:Dioptric"
+    mc:Ignorable="d"
         Title="Chart" Loaded="Window_Loaded" ResizeMode="NoResize" Height="1000" Width="22cm" WindowStartupLocation="CenterScreen">
-    
+    <Window.Resources>
+        <converter:PositiveConverter x:Key="PositiveConverter"></converter:PositiveConverter>
+    </Window.Resources>
     <ScrollViewer x:Name="sv" VerticalScrollBarVisibility="Auto">
         <Canvas x:Name="canvasMain" Height="29.7cm" Width="21cm" MouseRightButtonUp="Canvas_MouseRightButtonUp">
             <Grid Height="auto" Width="21cm">
@@ -30,9 +33,9 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="80"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -44,21 +47,14 @@
                     <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
                     <Border Grid.Column="5" BorderBrush="Black" BorderThickness="1"></Border>
 
-                    <!--<Border Grid.Row="1" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
-                <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
-                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
-                <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="1,1,0,1"></Border>
-                <Border Grid.Row="1" Grid.Column="5" BorderBrush="Black" BorderThickness="1,0,1,1"></Border>-->
-
                     <TextBlock Text="姓名" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
                     <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                     <TextBlock Text="性别" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
                     <TextBlock Grid.Column="3" Text="{Binding Sex}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
-                    <TextBlock Text="身份证" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
-                    <TextBlock Grid.Column="5" Text="{Binding IDCardNumber}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                    <TextBlock Text="出生日期" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                    <TextBlock Grid.Column="5" Text="{Binding BirthDate}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
                 </Grid>
 
                 <Grid Grid.Row="3" DataContext="{Binding Inspection}">
@@ -131,8 +127,8 @@
                         <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
 
                         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH}" VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Converter={StaticResource PositiveConverter}}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL,Converter={StaticResource PositiveConverter}}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
@@ -192,8 +188,8 @@
                         <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="12" Grid.Row="2" Grid.Column="2" Height="18"/>
 
                         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Mode=TwoWay}" VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding SPH,Converter={StaticResource PositiveConverter}}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CYL,Converter={StaticResource PositiveConverter}}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding Direction}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
