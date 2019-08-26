@@ -54,7 +54,7 @@
                     <TextBlock Grid.Column="3" Text="{Binding Sex}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
 
                     <TextBlock Text="出生日期" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
-                    <TextBlock Grid.Column="5" Text="{Binding BirthDate}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                    <TextBlock Grid.Column="5" Text="{Binding BirthDate,StringFormat='{}{0:yyyy年MM月dd日}'}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
                 </Grid>
 
                 <Grid Grid.Row="3" DataContext="{Binding Inspection}">

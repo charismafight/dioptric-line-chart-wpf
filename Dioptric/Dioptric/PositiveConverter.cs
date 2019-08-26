@@ -17,11 +17,11 @@ namespace Dioptric
                 var val = (double)value;
                 if (val > 0)
                 {
-                    return "+" + val.ToString("{0:F}");
+                    return "+" + val.ToString("f2");
                 }
                 else
                 {
-                    return val.ToString("{0:F}");
+                    return val.ToString("f2");
                 }
             }
 
