@@ -76,20 +76,22 @@ namespace Dioptric
             double y2step = 3;
 
             //坐标原点，在y最大值的3分之2处
-            var oiriginPositionY = 361;
+            var oiriginPositionY = 332;
             var originPostionX = 0;
 
             //x轴
-            DrawAxis(new Point(xmin, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY), 180);
+            DrawAxis(new Point(xmin, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY), 180, 18);
             //y轴
-            DrawAxis(new Point(xmin, 0), new Point(xmin, canGraph.Height), 180);
+            DrawAxis(new Point(xmin, 0), new Point(xmin, canGraph.Height), 180, 45);
             //DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 180);
 
 
             var orderedModels = model.Inspections.OrderBy(p => p.Age).ToList();
 
-            var pxPerAge = 3;
-            var pxPerSPH = 12;
+            var pxPerAge = 3.6111;
+            var pxPerHeight = 3.6111;
+            var pxPerSPH = 13.33;
+            var pxPerEyeAxial = 33.33;
 
             //画点连线，年龄
             for (int i = 0; i < orderedModels.Count; i++)
@@ -117,12 +119,11 @@ namespace Dioptric
 
             var pointsHeight = new PointCollection();
             var heightOrderedModels = model.Inspections.OrderBy(p => p.Height).ToList();
-            var pxPerHeight = 3.6111;
-            var pxPerEyeAxial = 3;
+
             //画点连线，身高
             for (int i = 0; i < heightOrderedModels.Count; i++)
             {
-                var x = xmin + heightOrderedModels[i].Height * pxPerHeight;
+                var x = xmin + orderedModels[i].Age * pxPerAge;
 
                 var yLeft = oiriginPositionY - (heightOrderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
                 var yRight = oiriginPositionY - (heightOrderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
@@ -185,9 +186,11 @@ namespace Dioptric
             for (int i = 0; i < scaleCount + 1; i++)
             {
                 var addition = 0;
-                if (i == 0 || i % (scaleCount / 10) == 0)
+                if (i == 0 || i % (scaleCount / sectionCount) == 0)
                 {
                     addition = 3;
+                    //加文字
+
                 }
                 //把轴线分割成n份
                 var x = start.X + stepX * (i);
