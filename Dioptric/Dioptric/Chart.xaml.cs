@@ -25,6 +25,8 @@ namespace Dioptric
 
         bool leftEye;
 
+        bool heightChart;
+
         public Chart(PatientModel model, InspectionModel currentInspection, bool leftEye = true)
         {
             InitializeComponent();
@@ -52,7 +54,6 @@ namespace Dioptric
             //var maxEyeSight = models.Max(p => p.EyeSight);
             //var minEyeSight = models.Min(p => p.EyeSight);
 
-            PointCollection points = new PointCollection();
             //刻度长度，用来画轴线上的标记刻度的
             const double margin = 5;
 
@@ -93,50 +94,113 @@ namespace Dioptric
             var pxPerSPH = 13.33;
             var pxPerEyeAxial = 33.33;
 
-            //画点连线，年龄
-            for (int i = 0; i < orderedModels.Count; i++)
-            {
-                //月份x每月占像素，先把岁转成月，后续按照实际月份来算
-                var x = xmin + orderedModels[i].Age * pxPerAge;
+            var pointsAgeLeftAxial = new PointCollection();
+            var pointsAgeRightAxial = new PointCollection();
+            var pointsAgeLeftSPH = new PointCollection();
+            var pointsAgeRightSPH = new PointCollection();
 
-                //y轴有些不同，y的最大值是坐标0点，但是在画布上是左下角点（即top大，left0的点）
-                //所以用视力的最大值去减，得到的结果就从y的最小值上按比例加，越大越靠上方
-                //ymax / 2作为0点，+-要根据屈光度取反（为了对应坐标轴）
-                //左眼
-                var yLeftEye = oiriginPositionY - (orderedModels[i].LeftEye.SPH * pxPerSPH);
-                //右眼
-                var yRightEye = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
+            var pointsHeightLeftAxial = new PointCollection();
+            var pointsHeightRightAxial = new PointCollection();
+            var pointsHeightLeftSPH = new PointCollection();
+            var pointsHeightRightSPH = new PointCollection();
 
-                points.Add(new Point(x, leftEye ? yLeftEye : yRightEye));
-            }
-
-            Polyline polyline = new Polyline();
-            polyline.StrokeThickness = 2;
-            polyline.Stroke = Brushes.Red;
-            polyline.Points = points;
-
-            canGraph.Children.Add(polyline);
-
-            var pointsHeight = new PointCollection();
             var heightOrderedModels = model.Inspections.OrderBy(p => p.Height).ToList();
 
-            //画点连线，身高
-            for (int i = 0; i < heightOrderedModels.Count; i++)
+            if (heightChart)
             {
-                var x = xmin + orderedModels[i].Age * pxPerAge;
+                //画点连线，身高
+                for (int i = 0; i < heightOrderedModels.Count; i++)
+                {
+                    var x = xmin + orderedModels[i].Height * pxPerHeight;
 
-                var yLeft = oiriginPositionY - (heightOrderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
-                var yRight = oiriginPositionY - (heightOrderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
+                    var yLeftEyeSPH = oiriginPositionY - (orderedModels[i].LeftEye.SPH * pxPerSPH);
+                    var yRightEyeSPH = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
+                    var yLeftEyeAxial = oiriginPositionY - (orderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
+                    var yRightEyeAxial = oiriginPositionY - (orderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
 
-                pointsHeight.Add(new Point(x, leftEye ? yLeft : yRight));
+                    pointsHeightLeftSPH.Add(new Point(x, yLeftEyeSPH));
+                    pointsHeightRightSPH.Add(new Point(x, yRightEyeSPH));
+                    pointsHeightLeftAxial.Add(new Point(x, yLeftEyeAxial));
+                    pointsHeightRightAxial.Add(new Point(x, yRightEyeAxial));
+                }
+            }
+            else
+            {
+                //画点连线，年龄
+                for (int i = 0; i < orderedModels.Count; i++)
+                {
+                    //月份x每月占像素，先把岁转成月，后续按照实际月份来算
+                    var x = xmin + orderedModels[i].Age * pxPerAge;
+
+                    //y轴有些不同，y的最大值是坐标0点，但是在画布上是左下角点（即top大，left0的点）
+                    //所以用视力的最大值去减，得到的结果就从y的最小值上按比例加，越大越靠上方
+                    //ymax / 2作为0点，+-要根据屈光度取反（为了对应坐标轴）
+                    //左眼
+                    var yLeftEyeSPH = oiriginPositionY - (orderedModels[i].LeftEye.SPH * pxPerSPH);
+                    var yRightEyeSPH = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
+                    var yLeftEyeAxial = oiriginPositionY - (orderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
+                    var yRightEyeAxial = oiriginPositionY - (orderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
+
+                    pointsAgeLeftSPH.Add(new Point(x, yLeftEyeSPH));
+                    pointsAgeRightSPH.Add(new Point(x, yRightEyeSPH));
+                    pointsAgeLeftAxial.Add(new Point(x, yLeftEyeAxial));
+                    pointsAgeRightAxial.Add(new Point(x, yRightEyeAxial));
+                }
             }
 
-            Polyline polylineHeight = new Polyline();
-            polylineHeight.StrokeThickness = 2;
-            polylineHeight.Stroke = Brushes.Blue;
-            polylineHeight.Points = pointsHeight;
+            //年龄
+            Polyline polylineAgeLeftSPH = new Polyline();
+            polylineAgeLeftSPH.StrokeThickness = 2;
+            polylineAgeLeftSPH.Stroke = Brushes.Red;
+            polylineAgeLeftSPH.Points = pointsAgeLeftSPH;
 
-            canGraph.Children.Add(polylineHeight);
+            Polyline polylineRightSPH = new Polyline();
+            polylineRightSPH.StrokeThickness = 2;
+            polylineRightSPH.Stroke = Brushes.Blue;
+            polylineRightSPH.Points = pointsAgeRightSPH;
+
+            Polyline polylineAgeLeftAxial = new Polyline();
+            polylineAgeLeftAxial.StrokeThickness = 2;
+            polylineAgeLeftAxial.Stroke = Brushes.Yellow;
+            polylineAgeLeftAxial.Points = pointsAgeLeftAxial;
+
+            Polyline polylineRightAxial = new Polyline();
+            polylineRightAxial.StrokeThickness = 2;
+            polylineRightAxial.Stroke = Brushes.Green;
+            polylineRightAxial.Points = pointsAgeRightAxial;
+
+            canGraph.Children.Add(polylineAgeLeftSPH);
+            canGraph.Children.Add(polylineRightSPH);
+            canGraph.Children.Add(polylineAgeLeftAxial);
+            canGraph.Children.Add(polylineRightAxial);
+
+
+
+            //身高
+            Polyline p1 = new Polyline();
+            p1.StrokeThickness = 2;
+            p1.Stroke = Brushes.Red;
+            p1.Points = pointsHeightLeftSPH;
+
+            Polyline p2 = new Polyline();
+            p2.StrokeThickness = 2;
+            p2.Stroke = Brushes.Blue;
+            p2.Points = pointsHeightRightSPH;
+
+            Polyline p3 = new Polyline();
+            p3.StrokeThickness = 2;
+            p3.Stroke = Brushes.Yellow;
+            p3.Points = pointsHeightLeftAxial;
+
+            Polyline p4 = new Polyline();
+            p4.StrokeThickness = 2;
+            p4.Stroke = Brushes.Green;
+            p4.Points = pointsHeightRightAxial;
+
+            canGraph.Children.Add(p1);
+            canGraph.Children.Add(p2);
+            canGraph.Children.Add(p3);
+            canGraph.Children.Add(p4);
         }
 
         private async void Canvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
