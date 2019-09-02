@@ -77,11 +77,12 @@ namespace Dioptric
             double y2step = 3;
 
             //坐标原点，在y最大值的3分之2处
-            var oiriginPositionY = 332;
+            var oiriginPositionYSPH = 332;
+            var oiriginPositionYAxial = 601;
             var originPostionX = 0;
 
             //x轴
-            DrawAxis(new Point(xmin, oiriginPositionY), new Point(canGraph.Width, oiriginPositionY), 180, 18);
+            DrawAxis(new Point(xmin, oiriginPositionYSPH), new Point(canGraph.Width, oiriginPositionYSPH), 180, 18);
             //y轴
             DrawAxis(new Point(xmin, 0), new Point(xmin, canGraph.Height), 180, 45);
             //DrawAxis(new Point(xmax, 0), new Point(xmax, canGraph.Height), 180);
@@ -113,10 +114,10 @@ namespace Dioptric
                 {
                     var x = xmin + orderedModels[i].Height * pxPerHeight;
 
-                    var yLeftEyeSPH = oiriginPositionY - (orderedModels[i].LeftEye.SPH * pxPerSPH);
-                    var yRightEyeSPH = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
-                    var yLeftEyeAxial = oiriginPositionY - (orderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
-                    var yRightEyeAxial = oiriginPositionY - (orderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
+                    var yLeftEyeSPH = oiriginPositionYSPH + (orderedModels[i].LeftEye.SPH * pxPerSPH);
+                    var yRightEyeSPH = oiriginPositionYSPH + (orderedModels[i].RightEye.SPH * pxPerSPH);
+                    var yLeftEyeAxial = oiriginPositionYAxial - ((orderedModels[i].LeftEye.EyeAxial - 17) * pxPerEyeAxial);
+                    var yRightEyeAxial = oiriginPositionYAxial - ((orderedModels[i].RightEye.EyeAxial - 17) * pxPerEyeAxial);
 
                     pointsHeightLeftSPH.Add(new Point(x, yLeftEyeSPH));
                     pointsHeightRightSPH.Add(new Point(x, yRightEyeSPH));
@@ -136,10 +137,10 @@ namespace Dioptric
                     //所以用视力的最大值去减，得到的结果就从y的最小值上按比例加，越大越靠上方
                     //ymax / 2作为0点，+-要根据屈光度取反（为了对应坐标轴）
                     //左眼
-                    var yLeftEyeSPH = oiriginPositionY - (orderedModels[i].LeftEye.SPH * pxPerSPH);
-                    var yRightEyeSPH = oiriginPositionY - (orderedModels[i].RightEye.SPH * pxPerSPH);
-                    var yLeftEyeAxial = oiriginPositionY - (orderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
-                    var yRightEyeAxial = oiriginPositionY - (orderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
+                    var yLeftEyeSPH = oiriginPositionYSPH + (orderedModels[i].LeftEye.SPH * pxPerSPH);
+                    var yRightEyeSPH = oiriginPositionYSPH + (orderedModels[i].RightEye.SPH * pxPerSPH);
+                    var yLeftEyeAxial = oiriginPositionYAxial - ((orderedModels[i].LeftEye.EyeAxial - 17) * pxPerEyeAxial);
+                    var yRightEyeAxial = oiriginPositionYAxial - ((orderedModels[i].RightEye.EyeAxial - 17) * pxPerEyeAxial);
 
                     pointsAgeLeftSPH.Add(new Point(x, yLeftEyeSPH));
                     pointsAgeRightSPH.Add(new Point(x, yRightEyeSPH));

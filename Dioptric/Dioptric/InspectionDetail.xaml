@@ -83,8 +83,7 @@
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2" Height="18" Width="70"/>
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" Height="18" Width="42"/>
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="17" Width="42"/>
-            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="K1：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18"/>
-            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="K2：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="4" Height="18"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18"/>
 
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="120">
@@ -102,7 +101,6 @@
             <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K1}" VerticalAlignment="Center" Width="120" />
-            <TextBox Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K2}" VerticalAlignment="Center" Width="120" />
         </Grid>
 
         <Grid x:Name="gridRight"  Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" DataContext="{Binding RightEye,Mode=TwoWay}">
@@ -129,8 +127,7 @@
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="矫正视力：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2" Height="18" Width="70"/>
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼压：" VerticalAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="4" Height="18" Width="42"/>
             <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="眼轴：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Height="17" Width="42"/>
-            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="K1：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18"/>
-            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="K2：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="4" Height="18" />
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="角膜曲率：" VerticalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="2" Height="18"/>
 
             <TextBox Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Sight,Mode=TwoWay}" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" VerticalAlignment="Center" Width="120" >
@@ -148,7 +145,6 @@
             <TextBox Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" Width="120" />
             <TextBox Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K1}" VerticalAlignment="Center" Width="120" />
-            <TextBox Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K2}" VerticalAlignment="Center" Width="120" />
 
             <Button x:Name="btnCancel" FontSize="18" Content="取 消" Grid.Column="5" HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" Width="90" Height="40" Margin="0,50,4,3" Click="BtnCancel_Click" Grid.RowSpan="2"/>
             <Button x:Name="btnSave" FontSize="18" Content="保 存" Grid.Column="4" HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Center" Width="91" Height="40" Margin="0,50,99,3" Grid.ColumnSpan="2" Click="BtnSave_Click" Grid.RowSpan="2"/>

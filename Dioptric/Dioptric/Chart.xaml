@@ -133,7 +133,7 @@
                         <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" />
-                        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K1}" VerticalAlignment="Center" />
                     </Grid>
 
                     <Grid x:Name="gridRight" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" DataContext="{Binding RightEye,Mode=TwoWay}">
@@ -194,13 +194,14 @@
                         <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding CVA}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding IOP}" VerticalAlignment="Center" />
                         <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding EyeAxial}" VerticalAlignment="Center" />
-                        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding ORBSCAN}" VerticalAlignment="Center" />
+                        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="{Binding K1}" VerticalAlignment="Center" />
                     </Grid>
                 </Grid>
 
                 <Canvas Name="canGraph" Grid.Row="4" Margin="30,50,30,0" Background="White" Width="698" Height="601" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="年 龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="350"/>
                     <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="-20" FontSize="14" Width="20"/>
+                    <TextBlock Canvas.Left="80" TextWrapping="Wrap" Text="眼 轴" Canvas.Top="-20" FontSize="14" Width="20"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="眼 轴" Width="20" FontSize="14" VerticalAlignment="Top" Canvas.Left="720" Canvas.Top="-20"/>
                     <!--<TextBlock Canvas.Left="580" Canvas.Top="310" TextWrapping="Wrap" FontSize="14" Text="身 高（0-180cm）" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>-->
 
@@ -252,6 +253,20 @@
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-24" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="5"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-25" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="-10"/>
                     
+                    
+                    <!--眼轴-->
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="17" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="587"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="19" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="522"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="21" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="457"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="23" VerticalAlignment="Top" Canvas.Left="68" Canvas.Top="392"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Canvas.Left="68" Canvas.Top="325"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="27" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="260"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="29" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="190"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="31" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="125"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="55"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="35" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="-10"/>
+
+
                     <!--年龄/身高-->
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Canvas.Left="82" Canvas.Top="340"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Canvas.Left="118" Canvas.Top="340"/>
