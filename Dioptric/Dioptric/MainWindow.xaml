@@ -47,8 +47,7 @@
             Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}"/>
         <Button x:Name="btnEditInspection" Grid.Row="4" Content="修改" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnEditInspection_Click" Height="55" Width="55"
                 Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="55,0,0,0"/>
-        <Button x:Name="btnShowChart" Grid.Row="4" Content="左眼折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowChart_Click" Height="55"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="110,0,0,0"/>
+        <Button x:Name="btnShowChart" Grid.Row="4" Content="折线图（年龄）" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Click="BtnShowChart_Click" Height="55" Margin="110,0,0,0"/>
 
         <DataGrid x:Name="dgInspections" Grid.Row="5" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserAddRows="False" 
                   CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True" Style="{StaticResource AzureDataGrid}" SelectionChanged="DgInspections_SelectionChanged">
@@ -61,7 +60,6 @@
                 <DataGridTextColumn Header="备注" Width="*" Binding="{Binding Memo}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnShowChart_Copy" Grid.Row="4" Content="右眼折线图" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Click="BtnShowRightEyeChart_Click" Height="55"
-            Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Margin="189,0,0,0"/>
+        <Button x:Name="btnShowChart_Copy" Grid.Row="4" FontSize="14" Content="折线图（身高）" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Click="BtnShowRightHeight_Click" Height="55" Margin="220,1,0,0" Grid.RowSpan="2"/>
     </Grid>
 </controls:MetroWindow>

@@ -25,9 +25,9 @@ namespace Dioptric
 
         bool leftEye;
 
-        bool heightChart;
+        bool ageChart;
 
-        public Chart(PatientModel model, InspectionModel currentInspection, bool leftEye = true)
+        public Chart(PatientModel model, InspectionModel currentInspection, bool ageChart = true)
         {
             InitializeComponent();
             pwi = new PatientWithInspection();
@@ -36,6 +36,12 @@ namespace Dioptric
             this.leftEye = leftEye;
 
             DataContext = pwi;
+
+            this.ageChart = ageChart;
+            if (!ageChart)
+            {
+                tbDesc.Text = "身 高（0-180cm）";
+            }
 
             DrawArea(model);
         }
@@ -107,7 +113,7 @@ namespace Dioptric
 
             var heightOrderedModels = model.Inspections.OrderBy(p => p.Height).ToList();
 
-            if (heightChart)
+            if (ageChart)
             {
                 //画点连线，身高
                 for (int i = 0; i < heightOrderedModels.Count; i++)

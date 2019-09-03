@@ -60,12 +60,12 @@ namespace Dioptric
             ShowChart(true);
         }
 
-        private async void BtnShowRightEyeChart_Click(object sender, RoutedEventArgs e)
+        private async void BtnShowRightHeight_Click(object sender, RoutedEventArgs e)
         {
             ShowChart(false);
         }
 
-        private async void ShowChart(bool leftEye)
+        private async void ShowChart(bool age)
         {
             if (dgCase.SelectedItems.Count <= 0)
             {
@@ -96,7 +96,7 @@ namespace Dioptric
                 currentInspection.LeftEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.LeftEyeId);
                 currentInspection.RightEye = db.Eyes.SingleOrDefault(p => p.Id == currentInspection.RightEyeId);
 
-                var chart = new Chart(individualModel, currentInspection, leftEye);
+                var chart = new Chart(individualModel, currentInspection, age);
                 chart.ShowDialog();
             }
 
