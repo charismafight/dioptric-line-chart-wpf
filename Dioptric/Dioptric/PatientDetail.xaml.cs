@@ -38,11 +38,6 @@ namespace Dioptric
         {
             //因为身份证用于计算年龄，所以身份证必填且符合规范
             var m = DataContext as PatientModel;
-            if ((!Regex.IsMatch(m.IDCardNumber, @"^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$", RegexOptions.IgnoreCase)))
-            {
-                await this.ShowMessageAsync("错误", "请输入合法的身份证以便正常计算年龄");
-                return;
-            }
 
             using (var db = new PatientContext())
             {
