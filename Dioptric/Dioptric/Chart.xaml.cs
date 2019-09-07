@@ -83,7 +83,7 @@ namespace Dioptric
             double y2step = 3;
 
             //坐标原点，在y最大值的3分之2处
-            var oiriginPositionYSPH = 332;
+            var oiriginPositionYSPH = 468;
             var oiriginPositionYAxial = 601;
             var originPostionX = 0;
 
