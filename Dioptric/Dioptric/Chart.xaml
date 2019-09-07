@@ -200,8 +200,8 @@
 
                 <Canvas Name="canGraph" Grid.Row="4" Margin="48,54,47.701,-4" Background="White" Width="698" Height="601" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock x:Name="tbDesc" HorizontalAlignment="Left" TextWrapping="Wrap" Text="年 龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="486"/>
-                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="-20" FontSize="14" Width="20"/>
-                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="眼 轴" Canvas.Top="228" FontSize="14" Width="20"/>
+                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="440" FontSize="14" Width="20"/>
+                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="眼 轴" Canvas.Top="100" FontSize="14" Width="20"/>
                     <!--<TextBlock Canvas.Left="580" Canvas.Top="310" TextWrapping="Wrap" FontSize="14" Text="身 高（0-180cm）" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>-->
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="594"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="581"/>
