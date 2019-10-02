@@ -11,7 +11,7 @@
         <converter:PositiveConverter x:Key="PositiveConverter"></converter:PositiveConverter>
     </Window.Resources>
     <ScrollViewer x:Name="sv" VerticalScrollBarVisibility="Auto">
-        <Canvas x:Name="canvasMain" Height="29.7cm" Width="21cm" MouseRightButtonUp="Canvas_MouseRightButtonUp">
+        <Canvas x:Name="canvasMain" Height="1123" Width="793" MouseRightButtonUp="Canvas_MouseRightButtonUp">
             <Grid Height="auto" Width="21cm">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"></RowDefinition>
@@ -198,94 +198,80 @@
                     </Grid>
                 </Grid>
 
-                <Canvas Name="canGraph" Grid.Row="4" Margin="30,50,30,0" Background="White" Width="698" Height="601" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock x:Name="tbDesc" HorizontalAlignment="Left" TextWrapping="Wrap" Text="年 龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="355"/>
-                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="-20" FontSize="14" Width="20"/>
-                    <TextBlock Canvas.Left="80" TextWrapping="Wrap" Text="眼 轴" Canvas.Top="-20" FontSize="14" Width="20"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="眼 轴" Width="20" FontSize="14" VerticalAlignment="Top" Canvas.Left="720" Canvas.Top="-20"/>
+                <Canvas Name="canGraph" Grid.Row="4" Margin="48,54,47.701,-4" Background="White" Width="698" Height="601" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="tbDesc" HorizontalAlignment="Left" TextWrapping="Wrap" Text="年 龄（0-18 岁）" FontSize="14" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="486"/>
+                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="屈光度" Canvas.Top="440" FontSize="14" Width="20"/>
+                    <TextBlock Canvas.Left="-10" TextWrapping="Wrap" Text="眼 轴" Canvas.Top="100" FontSize="14" Width="20"/>
                     <!--<TextBlock Canvas.Left="580" Canvas.Top="310" TextWrapping="Wrap" FontSize="14" Text="身 高（0-180cm）" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>-->
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="594"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="581"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="567"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="555"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="541"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="526"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="514"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="500"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="487"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="474"/>
 
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="587"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="19" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="574"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="18" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="561"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="17" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="548"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="535"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="522"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="14" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="509"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="496"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="483"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="470"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="457"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="444"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="431"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="418"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="405"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="392"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="379"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="366"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="353"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="340"/>
-
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="325"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="315"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-2" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="300"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-3" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="285"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-4" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="272"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-5" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="260"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-6" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="245"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-7" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="230"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-8" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="218"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-9" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="205"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-10" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="190"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-11" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="178"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-12" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="165"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-13" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="150"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-14" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="138"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-15" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="125"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-16" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="112"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-17" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="98"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-18" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="85"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-19" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="70"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-20" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="55"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-21" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="42"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-22" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="30"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-23" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="17"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-24" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="5"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-25" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="-10"/>
-
-
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Canvas.Left="28" Canvas.Top="461"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="448"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-2" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="433"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-3" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="420"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-4" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="407"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-5" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="394"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-6" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="380"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-7" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="367"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-8" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="355"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-9" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="342"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-10" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="329"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-11" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="314"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-12" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="301"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-13" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="289"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-14" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="275"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-15" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="262"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-16" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="249"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-17" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="235"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="-18" VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="222"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="19" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="207"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="192"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="21" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="179"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="22" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="167"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="23" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="154"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="142"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="128"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="26" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="114"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="27" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="101"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="28" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="88"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="29" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="74"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="59"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="31" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="46"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="32" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="34"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="19"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="34" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="7"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="35" VerticalAlignment="Top" Canvas.Left="24" Canvas.Top="-6"/>
                     <!--眼轴-->
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="17" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="587"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="19" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="522"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="21" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="457"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="23" VerticalAlignment="Top" Canvas.Left="68" Canvas.Top="392"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Canvas.Left="68" Canvas.Top="325"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="27" VerticalAlignment="Top" Canvas.Left="64" Canvas.Top="260"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="29" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="190"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="31" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="125"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="33" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="55"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="35" VerticalAlignment="Top" Canvas.Left="60" Canvas.Top="-10"/>
 
 
                     <!--年龄/身高-->
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Canvas.Left="82" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Canvas.Left="118" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Canvas.Left="155" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Canvas.Left="223" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Canvas.Left="261" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Canvas.Left="300" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Canvas.Left="336" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Canvas.Left="370" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Canvas.Left="400" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Canvas.Left="440" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Canvas.Left="475" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" Canvas.Left="510" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="14" VerticalAlignment="Top" Canvas.Left="545" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Canvas.Left="620" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="17" VerticalAlignment="Top" Canvas.Left="655" Canvas.Top="340"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="18" VerticalAlignment="Top" Canvas.Left="690" Canvas.Top="340"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Canvas.Left="82" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Canvas.Left="118" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Canvas.Left="155" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Canvas.Left="223" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Canvas.Left="261" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Canvas.Left="300" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Canvas.Left="336" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Canvas.Left="370" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Canvas.Left="400" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Canvas.Left="440" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Canvas.Left="475" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" Canvas.Left="510" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="14" VerticalAlignment="Top" Canvas.Left="545" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Canvas.Left="580" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="16" VerticalAlignment="Top" Canvas.Left="620" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="17" VerticalAlignment="Top" Canvas.Left="655" Canvas.Top="468"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="18" VerticalAlignment="Top" Canvas.Left="690" Canvas.Top="468"/>
                 </Canvas>
                 <TextBlock HorizontalAlignment="Left" Margin="630,16,0,0" FontSize="12" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.4,0.733">
                 <Run Text="打印日期："></Run>
