@@ -113,7 +113,7 @@ namespace Dioptric
 
             var heightOrderedModels = model.Inspections.OrderBy(p => p.Height).ToList();
 
-            if (ageChart)
+            if (!ageChart)
             {
                 //画点连线，身高
                 for (int i = 0; i < heightOrderedModels.Count; i++)
@@ -256,12 +256,13 @@ namespace Dioptric
             //刻度数比分格多1
             for (int i = 0; i < scaleCount + 1; i++)
             {
+                var tableCell = false;
                 var addition = 0;
                 if (i == 0 || i % (scaleCount / sectionCount) == 0)
                 {
                     addition = 3;
-                    //加文字
-
+                    //加网格
+                    tableCell = true;
                 }
                 //把轴线分割成n份
                 var x = start.X + stepX * (i);
@@ -272,8 +273,27 @@ namespace Dioptric
                 var xM = diffX == 0 ? 0 : 1;
                 var yM = diffY == 0 ? 0 : 1;
 
+                var startX = x + margin * yM + addition * yM;
+                var startY = y + margin * xM + addition * xM;
+                var endX = x - margin * yM - addition * yM;
+                var endY = y - margin * xM - addition * xM;
+
+                //在画y轴
+                if (xM == 0 && tableCell)
+                {
+                    startX = x;
+                    endX = (int)canGraph.Width;
+                }
+
+                //在画x轴
+                if (yM == 0 && tableCell)
+                {
+                    startY = 0;
+                    endY = (int)canGraph.Height;
+                }
+
                 //这里x和y轴是相反的，当xM为0的时候表示x要波动形成垂直于y轴的刻度
-                var scaleLine = new LineGeometry(new Point(x + margin * yM + addition * yM, y + margin * xM + addition * xM), new Point(x - margin * yM - addition * yM, y - margin * xM - addition * xM));
+                var scaleLine = new LineGeometry(new Point(startX, startY), new Point(endX, endY));
                 geom.Children.Add(scaleLine);
             }
 
