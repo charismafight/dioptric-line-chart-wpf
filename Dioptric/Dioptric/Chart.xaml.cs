@@ -121,10 +121,10 @@ namespace Dioptric
                 {
                     var x = xmin + orderedModels[i].Height * pxPerHeight;
 
-                    var yLeftEyeSPH = oiriginPositionYSPH + (orderedModels[i].LeftEye.SPH * pxPerSPH);
-                    var yRightEyeSPH = oiriginPositionYSPH + (orderedModels[i].RightEye.SPH * pxPerSPH);
-                    var yLeftEyeAxial = oiriginPositionYAxial - (orderedModels[i].LeftEye.EyeAxial * pxPerEyeAxial);
-                    var yRightEyeAxial = oiriginPositionYAxial - (orderedModels[i].RightEye.EyeAxial * pxPerEyeAxial);
+                    var yLeftEyeSPH = oiriginPositionYSPH + ((orderedModels[i].LeftEye.SPH - 10) * pxPerSPH);
+                    var yRightEyeSPH = oiriginPositionYSPH + ((orderedModels[i].RightEye.SPH - 10) * pxPerSPH);
+                    var yLeftEyeAxial = oiriginPositionYAxial - ((orderedModels[i].LeftEye.EyeAxial + 10) * pxPerEyeAxial);
+                    var yRightEyeAxial = oiriginPositionYAxial - ((orderedModels[i].RightEye.EyeAxial + 10) * pxPerEyeAxial);
 
                     pointsHeightLeftSPH.Add(new Point(x, yLeftEyeSPH));
                     pointsHeightRightSPH.Add(new Point(x, yRightEyeSPH));
